@@ -1,0 +1,13 @@
+To install, drag and drop the gnome-****.tar.gz files into GNOME's appearance preferences, or extract them and copy their folders to /usr/share/icons as administrator (i.e. sudo nautilus /usr/share/icons in Ubuntu).
+
+GNOME-Colors depends on the package "gnome-icon-theme". This package is already installed in almost all distributions with a GNOME desktop environment, but you may have to install this package if your distribution or desktop environment does not have it by default. 
+
+For more icon customization and features, you can install the GNOME-Colors Extras. They are available in the project page as the "extras-gnome-colors" package.
+
+If installed through the Appearance Preferences tool in Ubuntu (instead of extracting /usr/share/icons), for icons to theme root/admin applications, you must type in a terminal: sudo ln -s ~/.icons /root
+
+Please read the "Authors" and "Copying" files!
+
+It's always best to remove a previous version before upgrading!
+
+Enjoy!
