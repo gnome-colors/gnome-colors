@@ -20,7 +20,7 @@ WALLPAPER := \
 	Arc-Noble.png \
 	Arc-Wine.png \
 	Arc-Wise.png
-DIST_EXTRA := Sources
+DIST_EXTRA := Makefile Sources
 
 FILES := $(shell find $(THEMES) \( -type f -o -type l \) -a ! -wholename '*/.*')
 DIST_EXTRA_FILES := $(shell find $(DIST_EXTRA) \( -type f -o -type l \) -a ! -wholename '*/.*')
@@ -54,10 +54,10 @@ bz2: $(PACKAGE).tar.bz2
 gz: $(PACKAGE).tar.gz
 
 $(PACKAGE).tar.bz2: $(DIST_FILES)
-	tar -c $(DIST_FILES) | bzip2 -cz9 > $@
+	tar -c --transform='s|^|$(PACKAGE)/|' $^ | bzip2 -cz9 > $@
 
 $(PACKAGE).tar.gz: $(DIST_FILES)
-	tar -c $(DIST_FILES) | gzip -cn9 > $@
+	tar -c --transform='s|^|$(PACKAGE)/|' $^ | gzip -cn9 > $@
 
 install: uninstall
 	for FILE in $(FILES); do \

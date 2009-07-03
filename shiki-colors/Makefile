@@ -12,7 +12,7 @@ THEMES := \
 	Shiki-Wine \
 	Shiki-Wise
 WALLPAPER := Arc-Colors\ Transparent\ Wallpaper.png
-DIST_EXTRA := userChrome.css
+DIST_EXTRA := Makefile userChrome.css
 
 FILES := $(shell find $(THEMES) \( -type f -o -type l \) -a ! -wholename '*/.*' -printf '%p\n' | sed 's/ /\\ /g;s/\n/ /g')
 USER := /home/$(shell whoami)/.themes
