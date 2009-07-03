@@ -39,9 +39,9 @@ bz2: $(PACKAGE).tar.bz2
 gz: $(PACKAGE).tar.gz
 
 $(PACKAGE).tar: $(DIST_FILES) $(COMMON_FILES)
-	tar -cf $@ --transform="s|^|$(PACKAGE)/|" $(DIST_FILES)
+	tar -cf $@ $(DIST_FILES)
 	for THEME in $(THEMES); do \
-		tar -rf $@ --transform="s|^gnome-colors-common|$(PACKAGE)/$$THEME|" $(COMMON_FILES); \
+		tar -rf $@ --transform="s|^gnome-colors-common|$(PACKAGE)|" $(COMMON_FILES); \
 	done
 
 $(PACKAGE).tar.bz2: $(PACKAGE).tar

@@ -49,10 +49,10 @@ bz2: $(PACKAGE).tar.bz2
 gz: $(PACKAGE).tar.gz
 
 $(PACKAGE).tar.bz2: $(DIST_FILES)
-	tar -c --transform='s|^|$(PACKAGE)/|' $(DIST_FILES) | bzip2 -cz9 > $@
+	tar -c $(DIST_FILES) | bzip2 -cz9 > $@
 
 $(PACKAGE).tar.gz: $(DIST_FILES)
-	tar -c --transform='s|^|$(PACKAGE)/|' $(DIST_FILES) | gzip -cn9 > $@
+	tar -c $(DIST_FILES) | gzip -cn9 > $@
 
 install: uninstall
 	for FILE in $(FILES); do install -D -m 644 "$$FILE" "$(SYSTEM)/$$FILE"; done
