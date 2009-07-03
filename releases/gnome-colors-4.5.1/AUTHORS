@@ -1,0 +1,43 @@
+####################
+ABOUT:             #
+####################
+GNOME-Colors is developed by Victor C. <perfectska04@gmail.com>
+
+-GNOME icons and GNOME-Colors icons are all licensed under the GPL. Some original GNOME-Colors icons are listed as public domain.
+
+-This package is licensed under GNU General Public License version 2.
+
+-Icons based on Tango sources or taken from the Tango project are public domain.
+	You can visit the Tango project website here:
+		http://tango.freedesktop.org/Tango_Desktop_Project
+
+-Many application icons exist all thanks to the Tango Generator project. 
+	You can visit the project website here:
+		http://mejogid.ohallwebservices.com/site/index.php?q=node/1
+
+####################
+SPECIAL THANKS TO: #
+####################
+-Jakub 'jimmac' Steiner, Andreas Nilsson, Lapo Calamandrei and all the other talented artists who make tons of incredible artwork for Linux. GNOME-Colors would not exist at all without these people.
+
+-The GNOME and Tango projects, on which GNOME-Colors is decidedly and admittedly based 99% on.
+
+-Benjamin Drung and Andrew Starr-Bochicchio for doing the debian/ubuntu packaging, maintaining the official PPA repository, and helping to resolve all licensing conflicts in order to make GNOME-Colors freer and easier than ever!
+
+-The Tango Generator project for making dozens of consistent and beautiful application icons available for use.
+
+-The developers of "Human" and "Erectus" icon themes for some inspiration and icons.
+
+-The Elementary project for being a big influence for GNOME-Colors in the project's very early stages. We have moved quite far away from them and into almost all Gnome/Tango-based icons, but there are still a small handful of icons based on Elementary that give the project a little extra style.
+
+-Many unnamed artists who created or helped create icons specifically for this set. (If you are such a person, e-mail me and I will add you here.)
+
+-The gnome-look.org, ubuntuforums.org and linux communities for their constant support, words of encouragement and prompt feedback.
+
+-The developers of gnome-do for featuring gnome-colors in their stylish website!
+
+-Xubuntu, Easy Peasy, Sabayon-GNOME, Linux Mint and others for including these icons in their distros!
+
+-The Comix developer for making one of the best applications for Linux, and for collaborating in the creation and inclusion of the new Comix logo/icons.
+
+-And last but not least. people who have donated to the project! I don't require nor force donations (the "donate" button is very small and almost hidden :P), but I am always very thankful of those of you who have donated any amount to the project.
