@@ -1,5 +1,5 @@
-2.3+SVN (2009-06-30)
--Update shutdown and suspend buttons to latest gnome-colors.
+2.3.1 SVN (2009-06-30)
+-Update shutdown, suspend and logo icons to latest gnome-colors.
 
 2.3 (2009-06-24)
 -Update textboxes and included GTK's to better match the new human palette in gnome-colors's new human icons.

@@ -1,7 +1,7 @@
 PROJECT := gnome-colors
 DOCS := AUTHORS ChangeLog COPYING README
 THEMES := gnome-brave gnome-dust gnome-human gnome-noble gnome-wine gnome-wise
-DIST_EXTRA := Makefile Palette.svg
+DIST_EXTRA := Palette.svg
 
 FILES := $(shell find $(THEMES) -type d -a ! -wholename '*/.*' -exec sh -c 'if ls $$1/*.* > /dev/null 2>&1; then printf "$$1/*.* "; fi' {} {} \;)
 COMMON_FILES := $(shell find gnome-colors-common -type d -a ! -wholename '*/.*' -exec sh -c 'if ls $$1/*.* > /dev/null 2>&1; then printf "$$1/*.* "; fi' {} {} \; 2> /dev/null)
