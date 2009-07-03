@@ -1,0 +1,78 @@
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+
+/* Awesomebar improvements */
+
+#urlbar {
+    -moz-appearance: textfield !important;
+}
+
+#urlbar .autocomplete-textbox-container {
+    background-color: -moz-Field !important;
+    -moz-appearance: none !important;
+}
+
+#urlbar > .autocomplete-history-dropmarker {
+    -moz-appearance: toolbarbutton-dropdown !important;
+    margin: 0px 3px 0px 5px !important;
+}
+
+#PopupAutoCompleteRichResult .autocomplete-richlistitem
+{
+    background: -moz-Field !important;
+}
+
+#PopupAutoCompleteRichResult .autocomplete-richlistitem[selected="true"]
+{
+    background: Highlight !important;
+}
+
+#PopupAutoCompleteRichResult .autocomplete-richlistitem[selected="true"],
+#PopupAutoCompleteRichResult .autocomplete-richlistitem[selected="true"] *
+{
+    color: HighlightText !important;
+}
+
+.ac-title
+{
+    color: -moz-Fieldtext !important;
+}
+
+#PopupAutoComplete .autocomplete-treebody {
+    background-color: -moz-Field !important;
+    color: -moz-Fieldtext !important;
+}
+
+/* Identity/Bookmark pop-up improvements */
+
+#identity-popup-container {
+    -moz-appearance: dialog !important;
+}
+
+#editBookmarkPanel {
+    -moz-appearance: dialog !important;
+}
+
+#editBMPanel_foldersExpander, #editBMPanel_tagsSelectorExpander {
+    -moz-appearance: menulist-button !important;
+}
+
+/* Remove focus lines from tabs */
+
+.tabbrowser-tab > .tab-text {
+    border: 1px dotted transparent !important;
+}
+
+/* Disable the throbber */
+
+#throbber-box {
+    display: none !important;
+}
+
+/* Support for Fission add-on */
+
+#urlbar[fission="fusion"] > #statusbar-icon > .progress-bar {
+    background-color: Highlight !important;
+    -moz-appearance: progresschunk !important;
+    opacity: 0.4 !important;
+    margin: 1px !important;
+}
