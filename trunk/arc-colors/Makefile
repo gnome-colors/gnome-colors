@@ -49,7 +49,7 @@ svnclean: clean
 # remove copied wallpaper
 	rm -f GDM*-Themes/Arc-*/bg.png
 
-dist: bz2
+dist: gz
 
 help:
 	@echo "make targets:"
