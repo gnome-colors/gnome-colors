@@ -15,7 +15,7 @@ THEMES := \
 	GDM-UserList-Themes/Arc-Wise-Userlist
 WALLPAPER := \
 	Arc-Brave.png \
-	Arc-Dust.jpg \
+	Arc-Dust.png \
 	Arc-Human.png \
 	Arc-Noble.png \
 	Arc-Wine.png \
