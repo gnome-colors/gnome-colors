@@ -6,8 +6,8 @@
 		<name>Arc-Human</name>
 		<filename>/usr/share/backgrounds/Arc-Human.png</filename>
 		<options>zoom</options>
-		<pcolor>#C27C3F</pcolor>
-		<scolor>#C27C3F</scolor>
+		<pcolor>#000000</pcolor>
+		<scolor>#000000</scolor>
 		<shade_type>solid</shade_type>
 	</wallpaper>
 </wallpapers>
