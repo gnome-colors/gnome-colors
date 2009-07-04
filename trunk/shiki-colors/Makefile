@@ -27,7 +27,7 @@ all:
 clean:
 	rm -f *.tar.bz2 *.tar.gz
 
-dist: gz
+dist: bz2
 
 help:
 	@echo "make targets:"
