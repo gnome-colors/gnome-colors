@@ -50,7 +50,7 @@ svnclean: clean
 		fi; \
 	done
 
-dist: gz
+dist: bz2
 
 help:
 	@echo "make targets:"
