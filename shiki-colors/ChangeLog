@@ -1,6 +1,7 @@
 4.3.1 (2009-07-04)
 * Add makefile and updated documentation.
 * New transparent wallpaper based on latest Arc-Colors.
+* Add XFWM theme to Shiki-Dust.
 
 4.3 (2009-06-24)
 * Update Shiki-Human with the new palette of gnome-colors's human icons 4.3.
