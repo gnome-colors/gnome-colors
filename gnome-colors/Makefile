@@ -21,18 +21,16 @@ dist: gz
 
 help:
 	@echo "make targets:"
-	@echo "  all*            Does nothing."
-	@echo "  clean           Delete all files created by this Makefile."
-	@echo "  dist            Create a distribution tar file for this project."
-	@echo "  help            Displays this help."
-	@echo "  bz2             Create a distribution .tar.bz2 file."
-	@echo "  gz              Create a distribution .tar.gz file."
-	@echo "  install         Installs the complete package into the system (for all users)."
-	@echo "  uninstall       Removes the package from the system."
-	@echo "  user-install    Installs the complete package into the user directory."
-	@echo "  user-uninstall  Removes the package from the user directory."
-	@echo
-	@echo "  * = default"
+	@echo "    all               Does nothing (default target)."
+	@echo "    clean             Deletes all files created by this makefile."
+	@echo "    dist              Creates a distribution tar file for $(PROJECT)."
+	@echo "    help              Displays this help."
+	@echo "    bz2               Create a distribution .tar.bz2 file."
+	@echo "    gz                Create a distribution .tar.gz file."
+	@echo "    install           Installs $(PROJECT) system-wide."
+	@echo "    uninstall         Removes $(PROJECT) from the system."
+	@echo "    user-install      Installs $(PROJECT) into the user directory."
+	@echo "    user-uninstall    Removes $(PROJECT) from the user directory."
 
 bz2: $(PACKAGE).tar.bz2
 
