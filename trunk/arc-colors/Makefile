@@ -20,12 +20,13 @@ WALLPAPER := \
 	Arc-Noble.png \
 	Arc-Wine.png \
 	Arc-Wise.png
+PROPERTIES := $(wildcard gnome-background-properties/arc-*.xml)
 DIST_EXTRA := Makefile Sources
 
 THEME_TARBALLS := $(addsuffix .tar.bz2,$(THEMES))
 FILES := $(shell find $(THEMES) \( -type f -o -type l \) -a ! -wholename '*/.*' 2> /dev/null)
 DIST_EXTRA_FILES := $(shell find $(DIST_EXTRA) \( -type f -o -type l \) -a ! -wholename '*/.*')
-DIST_FILES := $(THEME_TARBALLS) $(DOCS) $(WALLPAPER) $(DIST_EXTRA_FILES)
+DIST_FILES := $(THEME_TARBALLS) $(DOCS) $(WALLPAPER) $(PROPERTIES) $(DIST_EXTRA_FILES)
 
 VERSION := $(shell head -n 1 ChangeLog | cut -d ' ' -f 1)
 PACKAGE := $(PROJECT)-$(VERSION)
@@ -97,6 +98,10 @@ install: uninstall
 		ln -sf ../../../backgrounds/$$FILE $(DESTDIR)/usr/share/gdm/themes/$$THEME/bg.$$EXTENSION; \
 		ln -sf ../../../backgrounds/$$FILE $(DESTDIR)/usr/share/gdm/themes/$${THEME}-Userlist/bg.$$EXTENSION; \
 	done
+# install gnome-background-properties files
+	for FILE in $(PROPERTIES); do \
+		install -D -m 644 "$$FILE" "$(DESTDIR)/usr/share/$$FILE"; \
+	done
 
 uninstall:
 	for DIR in $(THEMES); do \
@@ -104,5 +109,6 @@ uninstall:
 		rm -rf "$(DESTDIR)/usr/share/gdm/themes/$$THEME"; \
 	done
 	for FILE in $(WALLPAPER); do rm -f "$(DESTDIR)/usr/share/backgrounds/$$FILE"; done
+	for FILE in $(PROPERTIES); do rm -f "$(DESTDIR)/usr/share/$$FILE"; done
 
 .PHONY: clean distclean help install svnclean uninstall
