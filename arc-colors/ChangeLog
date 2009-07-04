@@ -1,5 +1,7 @@
-2.3.1 (2009-07-03)
+2.5 (2009-07-03)
 * Update shutdown, suspend and logo icons to latest gnome-colors.
+* Brand new wallpapers! Darker colors for less eye-strain and support for any
+resolution or screen ratio below 2560x1200px.
 
 2.3 (2009-06-24)
 * Update textboxes and included GTK's to better match the new human palette in
