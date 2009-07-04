@@ -6,6 +6,6 @@ The GDM themes have a max resolution of 1920x1200 and support all 16:10, 5:4 and
 
 -To install GDM's, extract .tar.gz file, drag n' drop desired themes to the login preferences window, or run "make install" as administrator in the extracted folder. For more options, type "make help".
 
--If you replace the "bg.png/jpg" files, you can use any wallpaper you want! (in fact, I recommend it if you don't like the included backgrounds, or want the gdm's to feature your favorite wallpaper).
+-If you replace the "bg.png/jpg" files, you can use any wallpaper you want! (in fact, I recommend it if you don't like the included backgrounds, or want the GDM's to feature your favorite wallpaper).
 
 -If you replace the logo.png files, you can change the logo of the GDM's to your favorite Linux distribution's branding.
