@@ -6,8 +6,8 @@
 		<name>Arc-Noble</name>
 		<filename>/usr/share/backgrounds/Arc-Noble.png</filename>
 		<options>zoom</options>
-		<pcolor>#7A627B</pcolor>
-		<scolor>#7A627B</scolor>
+		<pcolor>#000000</pcolor>
+		<scolor>#000000</scolor>
 		<shade_type>solid</shade_type>
 	</wallpaper>
 </wallpapers>

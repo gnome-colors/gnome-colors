@@ -6,8 +6,8 @@
 		<name>Arc-Dust</name>
 		<filename>/usr/share/backgrounds/Arc-Dust.jpg</filename>
 		<options>zoom</options>
-		<pcolor>#C17D11</pcolor>
-		<scolor>#C17D11</scolor>
+		<pcolor>#000000</pcolor>
+		<scolor>#000000</scolor>
 		<shade_type>solid</shade_type>
 	</wallpaper>
 </wallpapers>

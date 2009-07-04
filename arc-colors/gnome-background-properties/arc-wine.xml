@@ -6,8 +6,8 @@
 		<name>Arc-Wine</name>
 		<filename>/usr/share/backgrounds/Arc-Wine.png</filename>
 		<options>zoom</options>
-		<pcolor>#A7423D</pcolor>
-		<scolor>#A7423D</scolor>
+		<pcolor>#000000</pcolor>
+		<scolor>#000000</scolor>
 		<shade_type>solid</shade_type>
 	</wallpaper>
 </wallpapers>

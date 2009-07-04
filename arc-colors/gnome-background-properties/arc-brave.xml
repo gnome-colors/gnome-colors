@@ -6,8 +6,8 @@
 		<name>Arc-Brave</name>
 		<filename>/usr/share/backgrounds/Arc-Brave.png</filename>
 		<options>zoom</options>
-		<pcolor>#546F90</pcolor>
-		<scolor>#546F90</scolor>
+		<pcolor>#000000</pcolor>
+		<scolor>#000000</scolor>
 		<shade_type>solid</shade_type>
 	</wallpaper>
 </wallpapers>
