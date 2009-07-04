@@ -47,14 +47,14 @@
 * Remove some old, deprecated stock icons.
 * Remove some evolution icons now that evolution uses the correct ones.
 * Enable drag n' drop installation to Appearance preferences by not repackaging
-the icon sets inside the download package. It's still recommended to extract the
-package even after installation, in order to view the documentation files.
+  the icon sets inside the download package. It's still recommended to extract
+  the package even after installation, in order to view the documentation files.
 
 4.2 (2009-06-23)
 * Copy icons in "stock" folders to "actions".
 * Delete scalable search animations, they are no longer used in GNOME 2.26.
 * Delete icons that were deprecated by GNOME before 2.24. GNOME 2.24 or above is
-now recommended.
+  now recommended.
 * Minor color consistency fixes in Dust and Noble variants.
 * Manually optimize most of the scalable files for better size and performance.
 
@@ -186,8 +186,8 @@ now recommended.
 * Major filesize improvements!
 
 (2009-05-11)
-* Brand new computer/display and their related icons, based on 
-gnome-icon-theme's one-canvas branch.
+* Brand new computer/display and their related icons, based on
+  gnome-icon-theme's one-canvas branch.
 * New music icons from gnome-icon-theme's one-canvas branch.
 * Removed some unnecessary icons, latest gnome-icon-theme already include these.
 * Fixed positioning on some mimetypes for improved consistency.
@@ -217,7 +217,7 @@ gnome-icon-theme's one-canvas branch.
 
 (2009-03-19)
 * New icon set! "GNOME-Noble". It's every bit as complete as the other ones, but
-features a purple color-scheme.
+  features a purple color-scheme.
 * Minor fixes.
 
 (2009-03-16)
