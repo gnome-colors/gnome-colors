@@ -1,10 +1,13 @@
 To install, drag and drop the .tar.gz file into GNOME's Appearance Preferences,
 or extract it and copy the gnome-* folders to /usr/share/icons as administrator
-(i.e. sudo nautilus /usr/share/icons in Ubuntu).
+(i.e. sudo nautilus /usr/share/icons in Ubuntu). The gnome-colors-common folder
+is a required dependency. You MUST install it in order for all the icon sets to
+work correctly.
 
-You may also use the included makefile for system-wide installation, just type
+You may also use the included Makefile for system-wide installation, just type
 "make install" as administrator or "make user-install" for per-user
-installation. For more options, type "make help".
+installation. For more options, type "make help". These commands should be run
+within the extracted folder that contains the Makefile.
 
 GNOME-Colors depends on the package "gnome-icon-theme". This package is already
 installed in almost all distributions with a GNOME desktop environment, but you
