@@ -15,7 +15,7 @@
    sodipodi:version="0.32"
    inkscape:version="0.46"
    version="1.0"
-   sodipodi:docname="drawing.svg"
+   sodipodi:docname="arc-bg.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
      id="defs7427">
@@ -436,27 +436,6 @@
          x="1.1172047"
          y="0.70607889" />
     </mask>
-    <linearGradient
-       id="linearGradient5598">
-      <stop
-         id="stop5600"
-         offset="0"
-         style="stop-color:#204a87;stop-opacity:1" />
-      <stop
-         id="stop5602"
-         offset="1"
-         style="stop-color:#729fcf;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5598"
-       id="linearGradient5566"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.5000002,0,0,1.5000003,-1.5000174,-1.500007)"
-       x1="774.4657"
-       y1="740.40045"
-       x2="774.4657"
-       y2="950.41473" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -469,13 +448,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.175"
-     inkscape:cx="651.25314"
-     inkscape:cy="260.0672"
+     inkscape:cx="956.72416"
+     inkscape:cy="673.52668"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="641"
-     inkscape:window-height="690"
+     inkscape:window-width="904"
+     inkscape:window-height="848"
      inkscape:window-x="425"
      inkscape:window-y="95" />
   <metadata
@@ -499,7 +478,7 @@
        height="1200"
        width="1920"
        id="rect5505"
-       style="opacity:1;fill:url(#linearGradient5566);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:#204a87;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        inkscape:export-filename="/home/pinheiro/photos/000000/winners/blac.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
