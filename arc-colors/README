@@ -1,11 +1,20 @@
-This is a set of GDM's/Wallpapers made to match the GTK themes "Shiki-Colors" and the icon themes "GNOME-Colors".
+This is a set of GDM's/Wallpapers made to match the GTK themes "Shiki-Colors"
+and the icon themes "GNOME-Colors".
 
-The GDM themes have a max resolution of 1920x1200 and support all 16:10, 5:4 and 4:3 screen ratios below that.
+The GDM themes have a max resolution of 1920x1200 and support all 16:10, 5:4 and
+4:3 screen ratios below that.
 
-16:9 screen ratios will show black bars to the sides of the screen, but you can fix this by cropping/scaling any GDM's background file to your display's native resolution.
+16:9 screen ratios will show black bars to the sides of the screen, but you can
+fix this by cropping/scaling any GDM's background file to your display's native
+resolution.
 
--To install GDM's, extract .tar.gz file, drag n' drop desired themes to the login preferences window, or run "make install" as administrator in the extracted folder. For more options, type "make help".
+-To install GDM's, extract .tar.gz file, drag n' drop desired themes to the
+login preferences window, or run "make install" as administrator in the
+extracted folder. For more options, type "make help".
 
--If you replace the "bg.png/jpg" files, you can use any wallpaper you want! (in fact, I recommend it if you don't like the included backgrounds, or want the GDM's to feature your favorite wallpaper).
+-If you replace the "bg.png/jpg" files, you can use any wallpaper you want! (in
+fact, I recommend it if you don't like the included backgrounds, or want the
+GDM's to feature your favorite wallpaper).
 
--If you replace the logo.png files, you can change the logo of the GDM's to your favorite Linux distribution's branding.
+-If you replace the logo.png files, you can change the logo of the GDM's to your
+favorite Linux distribution's branding.
