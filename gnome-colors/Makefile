@@ -1,10 +1,16 @@
 PROJECT := gnome-colors
 DOCS := AUTHORS ChangeLog COPYING README
-THEMES := gnome-brave gnome-dust gnome-human gnome-noble gnome-wine gnome-wise
+THEMES := \
+	gnome-brave \
+	gnome-colors-common \
+	gnome-dust \
+	gnome-human \
+	gnome-noble \
+	gnome-wine \
+	gnome-wise
 DIST_EXTRA := Makefile Palette.svg
 
 FILES := $(shell find $(THEMES) -type d -a ! -wholename '*/.*' -exec sh -c 'if ls $$1/*.* > /dev/null 2>&1; then printf "$$1/*.* "; fi' {} {} \;)
-COMMON_FILES := $(shell find gnome-colors-common -type d -a ! -wholename '*/.*' -exec sh -c 'if ls $$1/*.* > /dev/null 2>&1; then printf "$$1/*.* "; fi' {} {} \; 2> /dev/null)
 USER := /home/$(shell whoami)/.icons
 SYSTEM := $(DESTDIR)/usr/share/icons
 DIST_FILES := $(FILES) $(DOCS) $(DIST_EXTRA)
@@ -15,7 +21,7 @@ PACKAGE := $(PROJECT)-$(VERSION)
 all:
 
 clean:
-	rm -f *.tar *.tar.bz2 *.tar.gz
+	rm -f *.tar.bz2 *.tar.gz
 
 dist: bz2
 
@@ -36,50 +42,22 @@ bz2: $(PACKAGE).tar.bz2
 
 gz: $(PACKAGE).tar.gz
 
-$(PACKAGE).tar: $(DIST_FILES) $(COMMON_FILES)
-	tar -cf $@ $(DIST_FILES)
-	for THEME in $(THEMES); do \
-		tar -rf $@ --transform="s|^gnome-colors-common|$$THEME|" $(COMMON_FILES); \
-	done
+$(PACKAGE).tar.bz2: $(DIST_FILES)
+	tar -c $(DIST_FILES) | bzip2 -cz9 > $@
 
-$(PACKAGE).tar.bz2: $(PACKAGE).tar
-	bzip2 -cz9 $< > $@
-
-$(PACKAGE).tar.gz: $(PACKAGE).tar
-	gzip -cn9 $< > $@
+$(PACKAGE).tar.gz: $(DIST_FILES)
+	tar -c $(DIST_FILES) | gzip -cn9 > $@
 
 install: uninstall
-	for FILE in $(FILES); do \
-		mkdir -p $$(dirname $(SYSTEM)/$$FILE); \
-		cp -d $$FILE $(SYSTEM)/$$FILE; \
-	done
-ifneq ($(COMMON_FILES),)
-	for THEME in $(THEMES); do \
-		for FILE in $(COMMON_FILES); do \
-			DEST=$$(echo $$FILE | sed "s|^gnome-colors-common|$$THEME|"); \
-			mkdir -p $$(dirname $(SYSTEM)/$$DEST); \
-			cp -d $$FILE $(SYSTEM)/$$DEST; \
-		done; \
-	done
-endif
+	for DIR in $(patsubst %/*.*,%,$(FILES)); do mkdir -p $(SYSTEM)/$$DIR; done
+	for FILE in $(FILES); do cp -d $$FILE $(SYSTEM)/$$FILE; done
 
 uninstall:
 	for THEME in $(THEMES); do rm -rf "$(SYSTEM)/$$THEME"; done
 
 user-install: user-uninstall
-	for FILE in $(FILES); do \
-		mkdir -p $$(dirname $(USER)/$$FILE); \
-		cp -d $$FILE $(USER)/$$FILE; \
-	done
-ifneq ($(COMMON_FILES),)
-	for THEME in $(THEMES); do \
-		for FILE in $(COMMON_FILES); do \
-			DEST=$$(echo $$FILE | sed "s|^gnome-colors-common|$$THEME|"); \
-			mkdir -p $$(dirname $(USER)/$$DEST); \
-			cp -d $$FILE $(USER)/$$DEST; \
-		done; \
-	done
-endif
+	for DIR in $(patsubst %/*.*,%,$(FILES)); do mkdir -p $(USER)/$$DIR; done
+	for FILE in $(FILES); do cp -d $$FILE $(USER)/$$FILE; done
 
 user-uninstall:
 	for THEME in $(THEMES); do rm -rf "$(USER)/$$THEME"; done
