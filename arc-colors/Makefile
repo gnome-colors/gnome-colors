@@ -44,11 +44,10 @@ distclean: clean
 	done
 
 svnclean: clean
-	for THEME in $(THEMES); do \
-		if test -d $${THEME}; then \
-			rm -f $${THEME}.tar.bz2; \
-		fi; \
-	done
+# remove theme tarballs
+	rm -f GDM*-Themes/*.tar GDM*-Themes/*.tar.bz2
+# remove copied wallpaper
+	rm -f GDM*-Themes/Arc-*/bg.png
 
 dist: bz2
 
@@ -69,8 +68,14 @@ bz2: $(PACKAGE).tar.bz2
 
 gz: $(PACKAGE).tar.gz
 
-$(THEME_TARBALLS): %.tar.bz2: $(FILES)
-	tar -c --transform='s|^[^/]*/||' $(filter $(patsubst %.tar.bz2,%,$@)%,$^) | bzip2 -cz9 > $@
+$(THEME_TARBALLS:%.tar.bz2=%.tar): %.tar: $(FILES) $(WALLPAPER)
+	@echo $@ $(@D) $(@F)
+	tar -cf $@ --transform='s|^[^/]*/||' $(filter $(basename $@)%,$^)
+	tar -rf $@ $(patsubst %-Userlist,%,$(basename $(@F))).png \
+		--transform='s|^$(patsubst %-Userlist,%,$(basename $(@F)))|$(basename $(@F))/bg|'
+
+$(THEME_TARBALLS): %.tar.bz2: %.tar
+	bzip2 -cz9 $< > $@
 
 $(PACKAGE).tar.bz2: $(DIST_FILES)
 	tar -c --transform='s|^|$(PACKAGE)/|' $^ | bzip2 -cz9 > $@
