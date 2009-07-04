@@ -15,7 +15,7 @@
    sodipodi:version="0.32"
    inkscape:version="0.46"
    version="1.0"
-   sodipodi:docname="arc-bg-2.svg"
+   sodipodi:docname="arc-bg.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
      id="defs8069">
@@ -216,16 +216,16 @@
      objecttolerance="10"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.175"
-     inkscape:cx="1074.7901"
-     inkscape:cy="827.4298"
+     inkscape:zoom="0.35"
+     inkscape:cx="1601.1916"
+     inkscape:cy="644.93462"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="641"
-     inkscape:window-height="690"
-     inkscape:window-x="282"
-     inkscape:window-y="231" />
+     inkscape:window-width="1680"
+     inkscape:window-height="1000"
+     inkscape:window-x="0"
+     inkscape:window-y="25" />
   <metadata
      id="metadata8072">
     <rdf:RDF>
@@ -247,7 +247,7 @@
        height="1200"
        width="2560"
        id="rect5505"
-       style="opacity:1;fill:#1c4178;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:#204a87;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        inkscape:export-filename="/home/pinheiro/photos/000000/winners/blac.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
