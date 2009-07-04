@@ -1,14 +1,15 @@
 2.5 (2009-07-04)
 * Update shutdown, suspend and logo icons to latest gnome-colors.
 * Brand new wallpapers! Darker colors for less eye-strain and support for any
-resolution or screen ratio below 2560x1200px.
+  resolution or screen ratio below 2560x1200px.
 
 2.3 (2009-06-24)
 * Update textboxes and included GTK's to better match the new human palette in
-gnome-colors's new human icons.
+  gnome-colors's new human icons.
 
 2.1 (2009-06-20)
-* Fix included GTK in Arc-Dust to better match Shiki-Dust and use GNOME-Dust icons.
+* Fix included GTK in Arc-Dust to better match Shiki-Dust and use GNOME-Dust
+  icons.
 * Update Arc-Dust to the latest version of Shiki-Dust and GNOME-Dust.
 
 2.0 (2009-06-20)
@@ -37,7 +38,7 @@ gnome-colors's new human icons.
 
 1.5.1 (2009-05-11)
 * Add new scaling properties to the GDM's. Backgrounds now scale perfectly for
-any 16:10, 5:4 or 4:3 screen ratios.
+  any 16:10, 5:4 or 4:3 screen ratios.
 * Removed Non-Wide versions, as it is unnecessary due to the changes above.
 * Clock now updates correctly.
 * Added a timer and message for cases when automatic login is enabled.
