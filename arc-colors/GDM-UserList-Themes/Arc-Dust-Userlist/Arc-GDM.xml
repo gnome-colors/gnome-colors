@@ -17,7 +17,7 @@
 	<!-- or you could get rid of this and just have a base color (from above)-->
 	<item type="pixmap" id="background" background="true">
 		<!-- Point this to another file -->
-		<normal file="bg.jpg"/>
+		<normal file="bg.png"/>
 		<pos anchor="c" x="50%" y="50%" width="scale" height="100%"/>
 	</item>
 
