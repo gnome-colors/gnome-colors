@@ -1,10 +1,13 @@
-4.5.1 (2009-07-03)
+5.0 (2009-07-04)
 * Redesign old HAL-9000 Hibernate icon.
 * Make suspend icons consistent with new media-actions coloring.
-* Redo some tons of action icons with better and smoother gradients.
+* Redesign some tons of action icons with better and smoother gradients.
 * Add RapidSVN icons.
 * Minor cosmetic fixes to many icons.
 * Move project to SVN, include makefiles and update documentation.
+* Use new common library to reduce file size by as much as 4 times! Users are
+  encouraged to read documentation before installation, as the new
+  gnome-colors-common folder is a required dependency for all icon sets.
 
 4.5 (2009-06-30)
 * New phone icons.
