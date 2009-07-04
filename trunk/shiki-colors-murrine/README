@@ -1,21 +1,44 @@
-This version of Shiki-Colors is meant to use the latest release of Murrine 0.90.3. Please use the clearlooks version if you don't have the Murrine engine version 0.90.3.
+This version of Shiki-Colors is meant to use the latest release of Murrine
+0.90.3. Please use the clearlooks version if you don't have the Murrine engine
+version 0.90.3.
 
-To install, drag and drop the .tar.gz file into GNOME's Appearance Preferences, or extract it and copy the Shiki-* folders to /usr/share/icons as administrator (i.e. sudo nautilus /usr/share/themes in Ubuntu).
+To install, drag and drop the .tar.gz file into GNOME's Appearance Preferences,
+or extract it and copy the Shiki-* folders to /usr/share/icons as administrator
+(i.e. sudo nautilus /usr/share/themes in Ubuntu).
 
-You may also use the included makefile for system-wide installation, just type "make install" as administrator or "make user-install" for per-user installation. For more options, type "make help".
+You may also use the included makefile for system-wide installation, just type
+"make install" as administrator or "make user-install" for per-user
+installation. For more options, type "make help".
 
-There are a alternate/optional versions of the metacity (window borders) included.
+There are a alternate/optional versions of the metacity (window borders)
+included.
 
-For full Firefox 3.0+ compatibility, you may install the included userChrome.css file by copying it into your ~/.mozilla/firefox/(your profile directory)/chrome/ folder. Alternately, you can install the "Stylish" add-on, and go to http://userstyles.org/styles/10822 and load the userstyle. Using the Stylish add-on is recommended, as it is much easier and it will automatically update any changes. The userChrome file is non-invasive, and you won't notice any difference when using other themes, in fact, it may even fix Firefox 3.0+ in similar themes.
+For full Firefox 3.0+ compatibility, you may install the included userChrome.css
+file by copying it into your ~/.mozilla/firefox/(your profile directory)/chrome/
+folder. Alternately, you can install the "Stylish" add-on, and go to
+http://userstyles.org/styles/10822 and load the userstyle. Using the Stylish
+add-on is recommended, as it is much easier and it will automatically update any
+changes. The userChrome file is non-invasive, and you won't notice any
+difference when using other themes, in fact, it may even fix Firefox 3.0+ in
+similar themes.
 
-You can change the color scheme of a theme in GNOME's appearance preferences, by selecting customize and then the "Colors" tab. I recommend changing only the "Selected background" square for a custom colorscheme, but feel free to go wild and make the theme your own. Use the included tango color palette for some good color choices.
+You can change the color scheme of a theme in GNOME's appearance preferences, by
+selecting customize and then the "Colors" tab. I recommend changing only the
+"Selected background" square for a custom colorscheme, but feel free to go wild
+and make the theme your own. Use the included tango color palette for some good
+color choices.
 
-You can also customize any theme further by editing its /gtk-2.0/gtkrc file. There are line-by line instructions inside the file to help you achieve any look or maybe even teach you a thing or two about GTK themes.
+You can also customize any theme further by editing its /gtk-2.0/gtkrc file.
+There are line-by line instructions inside the file to help you achieve any look
+or maybe even teach you a thing or two about GTK themes.
 
-You can edit the included panel.rc file to customize panel backgrounds to your liking.
+You can edit the included panel.rc file to customize panel backgrounds to your
+liking.
 
-The transparent wallpaper will adjust to any background color, but darker colors will look better than lighter ones.
+The transparent wallpaper will adjust to any background color, but darker colors
+will look better than lighter ones.
 
-This theme is heavily influenced clearlooks/ubuntu artwork, so really most of the credit should go to those projects.
+This theme is heavily influenced clearlooks/ubuntu artwork, so really most of
+the credit should go to those projects.
 
 You should use the GNOME-Colors icons with this theme.
