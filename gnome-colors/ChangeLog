@@ -1,7 +1,8 @@
-5.0+SVN (2009-07-06)
+5.1 (2009-07-08)
 * Minor cosmetic tweaks.
 * Make wireless icons more accurate (0% signal = 0 bars).
 * Backport document-revert icon from gnome's one-canvas.
+* Redo some application icons for better consistency and looks.
 
 5.0 (2009-07-04)
 * Redesign old HAL-9000 Hibernate icon.
