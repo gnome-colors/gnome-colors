@@ -30,6 +30,7 @@ help:
 	@echo "    all               Does nothing (default target)."
 	@echo "    clean             Deletes all files created by this makefile."
 	@echo "    dist              Creates a distribution tar file for $(PROJECT)."
+	@echo "    fixperms          Fixes permissions of icon files."
 	@echo "    help              Displays this help."
 	@echo "    bz2               Create a distribution .tar.bz2 file."
 	@echo "    gz                Create a distribution .tar.gz file."
@@ -38,14 +39,17 @@ help:
 	@echo "    user-install      Installs $(PROJECT) into the user directory."
 	@echo "    user-uninstall    Removes $(PROJECT) from the user directory."
 
+fixperms:
+	find $(THEMES) ! -wholename '*/.*' -a -type f -a ! -perm 644 -exec chmod 644 {} \; -printf "chmod 644 %p\n"
+
 bz2: $(PACKAGE).tar.bz2
 
 gz: $(PACKAGE).tar.gz
 
-$(PACKAGE).tar.bz2: $(DIST_FILES)
+$(PACKAGE).tar.bz2: fixperms $(DIST_FILES)
 	tar -c $(DIST_FILES) | bzip2 -cz9 > $@
 
-$(PACKAGE).tar.gz: $(DIST_FILES)
+$(PACKAGE).tar.gz: fixperms $(DIST_FILES)
 	tar -c $(DIST_FILES) | gzip -cn9 > $@
 
 install: uninstall
@@ -62,4 +66,4 @@ user-install: user-uninstall
 user-uninstall:
 	for THEME in $(THEMES); do rm -rf "$(USER)/$$THEME"; done
 
-.PHONY: clean help install uninstall user-install user-uninstall
+.PHONY: clean fixperms help install uninstall user-install user-uninstall
