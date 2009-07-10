@@ -28,10 +28,16 @@ DST_FILES := $(foreach theme,$(THEMES),$(call THEME_DST_FILES,$(theme)))
 DST_LINKS := $(foreach theme,$(THEMES),$(call THEME_DST_LINKS,$(theme)))
 USER := /home/$(shell whoami)/.icons
 SYSTEM := $(DESTDIR)/usr/share/icons
-DIST_FILES := $(SRC_FILES) $(DOCS) $(DIST_EXTRA) $(THEME_FILES) $(LINKS_FILE)
+SRC_DIST_FILES := \
+	$(SRC_FILES) \
+	$(DOCS) \
+	$(DIST_EXTRA) \
+	$(THEME_FILES) \
+	$(LINKS_FILE)
 
 VERSION := $(shell head -n 1 ChangeLog | cut -d ' ' -f 1)
-PACKAGE := $(PROJECT)-$(VERSION)
+DIST_PACKAGE := $(PROJECT)-$(VERSION)
+SRC_PACKAGE := $(PROJECT)-src-$(VERSION)
 
 config = $(shell grep "^$(2)=" themes/$(1) | sed "s/^$(2)=//")
 
@@ -97,7 +103,7 @@ $(foreach theme,$(THEMES), \
 )
 
 clean:
-	rm -f *.tar.bz2 *.tar.gz
+	rm -f *.tar *.tar.bz2 *.tar.gz
 	rm -rf $(THEMES)
 
 BROKEN_LINKS = $(shell find * ! -wholename '*/.*' -type l ! -exec test -r {} \; -printf "%p ")
@@ -126,17 +132,30 @@ help:
 fixperms:
 	find * ! -wholename '*/.*' -a -type f -a ! -perm 644 -exec chmod 644 {} \; -printf "chmod 644 %p\n"
 
-bz2: $(PACKAGE).tar.bz2
+bz2: $(SRC_PACKAGE).tar.bz2 $(DIST_PACKAGE).tar.bz2
 
-gz: $(PACKAGE).tar.gz
+gz: $(SRC_PACKAGE).tar.gz $(DIST_PACKAGE).tar.gz
 
-$(PACKAGE).tar.bz2: $(DIST_FILES)
+# The tar command must be split, otherwise you get this error:
+# make: execvp: /bin/sh: Argument list too long
+$(DIST_PACKAGE).tar: $(DST_FILES) $(DOCS) $(DIST_EXTRA) $(DST_LINKS)
 	$(MAKE) fixperms
-	tar -c $(DIST_FILES) | bzip2 -cz9 > $@
+	tar -cf $@ $(DST_FILES) $(DOCS) $(DIST_EXTRA)
+	tar -rf $@ $(DST_LINKS)
 
-$(PACKAGE).tar.gz: $(DIST_FILES)
+$(DIST_PACKAGE).tar.bz2: $(DIST_PACKAGE).tar
+	bzip2 -cz9 $< > $@
+
+$(DIST_PACKAGE).tar.gz: $(DIST_PACKAGE).tar
+	gzip -cn9 $< > $@
+
+$(SRC_PACKAGE).tar.bz2: $(SRC_DIST_FILES)
 	$(MAKE) fixperms
-	tar -c $(DIST_FILES) | gzip -cn9 > $@
+	tar -c $^ | bzip2 -cz9 > $@
+
+$(SRC_PACKAGE).tar.gz: $(SRC_DIST_FILES)
+	$(MAKE) fixperms
+	tar -c $^ | gzip -cn9 > $@
 
 define install_template
 $(SYSTEM)/$(1): $(1)
