@@ -1,5 +1,5 @@
 [Icon Theme]
-Name=GNOME-Brave
+Name=@NAME@
 Comment=Colorized Gnome Icons
 Inherits=gnome-colors-common
 

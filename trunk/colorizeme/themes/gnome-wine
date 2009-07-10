@@ -1,1 +1,5 @@
-s/#8fb3d9/#e16060/g;s/#729fcf/#da3f3f/g;s/#3465a4/#c22f2f/g;s/#204a87/#a40000/g
+Name=GNOME-Wine
+Color1=#e16060
+Color2=#da3f3f
+Color3=#c22f2f
+Color4=#a40000

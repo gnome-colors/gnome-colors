@@ -1,1 +1,5 @@
-s/#8fb3d9/#b8d67a/g;s/#729fcf/#a7cc5c/g;s/#3465a4/#789e2d/g;s/#204a87/#42770c/g
+Name=GNOME-Wise
+Color1=#b8d67a
+Color2=#a7cc5c
+Color3=#789e2d
+Color4=#42770c
