@@ -1,5 +1,5 @@
 Name=GNOME-Wine
-Color1=#e16060
-Color2=#da3f3f
-Color3=#c22f2f
-Color4=#a40000
+LightFolderBase=#e16060
+LightBase=#da3f3f
+MediumBase=#c22f2f
+DarkStroke=#a40000

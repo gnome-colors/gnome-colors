@@ -1,5 +1,5 @@
 Name=GNOME-Dust
-Color1=#c2a78c
-Color2=#b49372
-Color3=#906e4c
-Color4=#745536
+LightFolderBase=#c2a78c
+LightBase=#b49372
+MediumBase=#906e4c
+DarkStroke=#745536
