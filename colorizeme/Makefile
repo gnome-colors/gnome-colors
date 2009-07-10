@@ -1,36 +1,54 @@
 PROJECT := colorizeme
 DOCS := 
 SRC_SIZES := \
-	16x16 \
-	22x22 \
-	32x32
-DIST_EXTRA := Makefile $(wildcard *.colorizeme)
+	src/16x16 \
+	src/22x22 \
+	src/32x32
+THEME_FILES := $(wildcard themes/*)
+DIST_EXTRA := Makefile
 
-THEMES := $(basename $(wildcard *.colorizeme))
+THEMES := $(notdir $(THEME_FILES))
 FIXED := $(shell find $(SRC_SIZES) ! -wholename '*/.*' -type f -name '*.svg')
-SCALABLE := $(shell find scalable ! -wholename '*/.*' -type f -name '*.svg')
-SRC_FILES := $(FIXED) $(SCALABLE)
-ICON_FILES := $(patsubst scalable/%,%,$(SCALABLE))
-DST_FILES := $(foreach theme,$(THEMES),\
-	$(addprefix $(theme)/,$(SCALABLE)) \
-	$(addprefix $(theme)/,$(FIXED:%.svg=%.png)) \
-	$(addprefix $(theme)/24x24/,$(ICON_FILES:%.svg=%.png)))
+SCALABLE := $(shell find src/scalable ! -wholename '*/.*' -type f -name '*.svg')
+SRC_FILES := $(shell find src ! -wholename '*/.*' -type f)
+ICON_FILES := $(patsubst src/scalable/%,%,$(SCALABLE))
+THEME_DST_FILES = $(1)/index.theme \
+	$(addprefix $(1)/,$(patsubst src/%,%,$(SCALABLE))) \
+	$(addprefix $(1)/,$(FIXED:src/%.svg=%.png)) \
+	$(addprefix $(1)/24x24/,$(ICON_FILES:%.svg=%.png))
+DST_FILES := $(foreach theme,$(THEMES),$(call THEME_DST_FILES,$(theme)))
 USER := /home/$(shell whoami)/.icons
 SYSTEM := $(DESTDIR)/usr/share/icons
-DIST_FILES := $(SRC_FILES) $(DOCS) $(DIST_EXTRA)
+DIST_FILES := $(SRC_FILES) $(DOCS) $(DIST_EXTRA) $(THEME_FILES)
 
 VERSION := $(shell head -n 1 ChangeLog | cut -d ' ' -f 1)
 PACKAGE := $(PROJECT)-$(VERSION)
+
+config = $(shell grep "^$(2)=" themes/$(1) | sed "s/^$(2)=//")
 
 all: $(DST_FILES)
 
 %.png: %.svg
 	inkscape -f $< -e $@
 
-define svg_template
-$(1)/$(2): $(2)
+define theme_template
+$(1)_c1 := $$(call config,$(1),Color1)
+$(1)_c2 := $$(call config,$(1),Color2)
+$(1)_c3 := $$(call config,$(1),Color3)
+$(1)_c4 := $$(call config,$(1),Color4)
+$(1)_sed := s/\#8fb3d9/$$($(1)_c1)/g;s/\#729fcf/$$($(1)_c2)/g;s/\#3465a4/$$($(1)_c3)/g;s/\#204a87/$$($(1)_c4)/g
+
+$(1): $(call THEME_DST_FILES,$(1))
+
+$(1)/index.theme: src/index.theme
 	mkdir -p $$(dir $$@)
-	sed "$(shell cat $(1).colorizeme)" $$< > $$@
+	sed "s/@NAME@/$(call config,$(1),Name)/" $$< > $$@
+endef
+
+define svg_template
+$(1)/$(2): src/$(2)
+	mkdir -p $$(dir $$@)
+	sed "$$($(1)_sed)" $$< > $$@
 endef
 
 define 24_template
@@ -39,8 +57,11 @@ $(1)/24x24/$(2): $(1)/22x22/$(2)
 	convert -bordercolor Transparent -border 1x1 $$< $$@
 endef
 
-$(foreach theme,$(THEMES),$(foreach file,$(SRC_FILES),$(eval $(call svg_template,$(theme),$(file)))))
-$(foreach theme,$(THEMES),$(foreach file,$(ICON_FILES:%.svg=%.png),$(eval $(call 24_template,$(theme),$(file)))))
+$(foreach theme,$(THEMES), \
+	$(eval $(call theme_template,$(theme))) \
+	$(foreach file,$(patsubst src/%,%,$(FIXED) $(SCALABLE)),$(eval $(call svg_template,$(theme),$(file)))) \
+	$(foreach file,$(ICON_FILES:%.svg=%.png),$(eval $(call 24_template,$(theme),$(file)))) \
+)
 
 clean:
 	rm -f *.tar.bz2 *.tar.gz
@@ -69,10 +90,12 @@ bz2: $(PACKAGE).tar.bz2
 
 gz: $(PACKAGE).tar.gz
 
-$(PACKAGE).tar.bz2: fixperms $(DIST_FILES)
+$(PACKAGE).tar.bz2: $(DIST_FILES)
+	$(MAKE) fixperms
 	tar -c $(DIST_FILES) | bzip2 -cz9 > $@
 
-$(PACKAGE).tar.gz: fixperms $(DIST_FILES)
+$(PACKAGE).tar.gz: $(DIST_FILES)
+	$(MAKE) fixperms
 	tar -c $(DIST_FILES) | gzip -cn9 > $@
 
 define install_template
