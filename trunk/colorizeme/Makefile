@@ -21,10 +21,11 @@ THEME_DST_FILES = $(1)/index.theme \
 	$(patsubst src/%,$(1)/%,$(SCALABLE)) \
 	$(addprefix $(1)/,$(FIXED:src/%.svg=%.png)) \
 	$(addprefix $(1)/24x24/,$(ONESIZE_FILES:%.svg=%.png)) \
-	$(foreach size,$(SIZES),$(addprefix $(1)/$(size)/,$(LINK_FILES))) \
-	$(addprefix $(1)/scalable/,$(LINK_FILES:%.png=%.svg)) \
 	$(patsubst src/%,$(1)/%,$(ICON_FILES))
+THEME_DST_LINKS = $(addprefix $(1)/scalable/,$(LINK_FILES:%.png=%.svg)) \
+	$(foreach size,$(SIZES),$(addprefix $(1)/$(size)/,$(LINK_FILES)))
 DST_FILES := $(foreach theme,$(THEMES),$(call THEME_DST_FILES,$(theme)))
+DST_LINKS := $(foreach theme,$(THEMES),$(call THEME_DST_LINKS,$(theme)))
 USER := /home/$(shell whoami)/.icons
 SYSTEM := $(DESTDIR)/usr/share/icons
 DIST_FILES := $(SRC_FILES) $(DOCS) $(DIST_EXTRA) $(THEME_FILES) $(LINKS_FILE)
@@ -34,7 +35,7 @@ PACKAGE := $(PROJECT)-$(VERSION)
 
 config = $(shell grep "^$(2)=" themes/$(1) | sed "s/^$(2)=//")
 
-all: $(DST_FILES)
+all: $(DST_FILES) $(DST_LINKS)
 
 %.png: %.svg
 	inkscape -f $< -e $@
@@ -46,7 +47,7 @@ $(1)_c3 := $$(call config,$(1),MediumBase)
 $(1)_c4 := $$(call config,$(1),DarkStroke)
 $(1)_sed := s/\#8fb3d9/$$($(1)_c1)/g;s/\#729fcf/$$($(1)_c2)/g;s/\#3465a4/$$($(1)_c3)/g;s/\#204a87/$$($(1)_c4)/g
 
-$(1): $(call THEME_DST_FILES,$(1))
+$(1): $(call THEME_DST_FILES,$(1)) $(call THEME_DST_LINKS,$(1))
 
 $(1)/index.theme: src/index.theme
 	mkdir -p $$(dir $$@)
@@ -141,11 +142,20 @@ $(USER)/$(1): $(1)
 	install -D -m 644 $$< $$@
 endef
 
+define install_links_template
+$(SYSTEM)/$(1): $(1)
+	cp -d $$< $$@
+
+$(USER)/$(1): $(1)
+	cp -d $$< $$@
+endef
+
 $(foreach file,$(DST_FILES),$(eval $(call install_template,$(file))))
+$(foreach file,$(DST_LINKS),$(eval $(call install_links_template,$(file))))
 
-install: uninstall $(addprefix $(SYSTEM)/,$(DST_FILES))
+install: uninstall $(addprefix $(SYSTEM)/,$(DST_FILES) $(DST_LINKS))
 
-user-install: user-uninstall $(addprefix $(USER)/,$(DST_FILES))
+user-install: user-uninstall $(addprefix $(USER)/,$(DST_FILES) $(DST_LINKS))
 
 uninstall:
 	rm -rf $(addprefix $(SYSTEM)/,$(THEMES))
