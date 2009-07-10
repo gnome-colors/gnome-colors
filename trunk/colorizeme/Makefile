@@ -37,9 +37,6 @@ config = $(shell grep "^$(2)=" themes/$(1) | sed "s/^$(2)=//")
 
 all: $(DST_FILES) $(DST_LINKS)
 
-%.png: %.svg
-	inkscape -f $< -e $@
-
 define theme_template
 $(1)_c1 := $$(call config,$(1),LightFolderBase)
 $(1)_c2 := $$(call config,$(1),LightBase)
@@ -52,6 +49,12 @@ $(1): $(call THEME_DST_FILES,$(1)) $(call THEME_DST_LINKS,$(1))
 $(1)/index.theme: src/index.theme
 	mkdir -p $$(dir $$@)
 	sed "s/@NAME@/$(call config,$(1),Name)/" $$< > $$@
+endef
+
+define png_template
+$(1)/$(2).png: src/$(2).svg
+	mkdir -p $$(dir $$@)
+	sed "$$($(1)_sed)" $$< | inkscape -f /dev/stdin -e $$@
 endef
 
 define svg_template
@@ -83,7 +86,8 @@ last = $(lastword $(subst -->, ,$(1)))
 
 $(foreach theme,$(THEMES), \
 	$(eval $(call theme_template,$(theme))) \
-	$(foreach file,$(patsubst src/%,%,$(FIXED) $(SCALABLE)),$(eval $(call svg_template,$(theme),$(file)))) \
+	$(foreach file,$(patsubst src/%.svg,%,$(FIXED)),$(eval $(call png_template,$(theme),$(file)))) \
+	$(foreach file,$(patsubst src/%,%,$(SCALABLE)),$(eval $(call svg_template,$(theme),$(file)))) \
 	$(foreach file,$(ONESIZE_FILES:%.svg=%.png),$(eval $(call 24_template,$(theme),$(file)))) \
 	$(foreach link,$(LINK_LIST),$(foreach size,$(SIZES),$(eval $(call link_template \
 		,$(theme)/$(size),$(call first,$(link)),$(call last,$(link)))))) \
