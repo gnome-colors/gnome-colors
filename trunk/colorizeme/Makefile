@@ -11,17 +11,19 @@ DIST_EXTRA := Makefile
 THEMES := $(notdir $(THEME_FILES))
 FIXED := $(shell find $(SRC_SIZES) ! -wholename '*/.*' -type f -name '*.svg')
 SCALABLE := $(shell find src/scalable ! -wholename '*/.*' -type f -name '*.svg')
+ICON_FILES := $(shell find src ! -wholename '*/.*' -type f -name '*.icon')
 SRC_FILES := $(shell find src ! -wholename '*/.*' -type f)
-ICON_FILES := $(patsubst src/scalable/%,%,$(SCALABLE))
+ONESIZE_FILES := $(patsubst src/scalable/%,%,$(SCALABLE))
 LINK_LIST := $(shell sed "s/ /-->/" $(LINKS_FILE))
 LINK_FILES := $(foreach link,$(LINK_LIST),$(lastword $(subst -->, ,$(link))))
 SIZES := $(notdir $(SRC_SIZES)) 24x24
 THEME_DST_FILES = $(1)/index.theme \
-	$(addprefix $(1)/,$(patsubst src/%,%,$(SCALABLE))) \
+	$(patsubst src/%,$(1)/%,$(SCALABLE)) \
 	$(addprefix $(1)/,$(FIXED:src/%.svg=%.png)) \
-	$(addprefix $(1)/24x24/,$(ICON_FILES:%.svg=%.png)) \
+	$(addprefix $(1)/24x24/,$(ONESIZE_FILES:%.svg=%.png)) \
 	$(foreach size,$(SIZES),$(addprefix $(1)/$(size)/,$(LINK_FILES))) \
-	$(addprefix $(1)/scalable/,$(LINK_FILES:%.png=%.svg))
+	$(addprefix $(1)/scalable/,$(LINK_FILES:%.png=%.svg)) \
+	$(patsubst src/%,$(1)/%,$(ICON_FILES))
 DST_FILES := $(foreach theme,$(THEMES),$(call THEME_DST_FILES,$(theme)))
 USER := /home/$(shell whoami)/.icons
 SYSTEM := $(DESTDIR)/usr/share/icons
@@ -68,17 +70,23 @@ $(1)/$(3):
 	ln -sf $(2) $$@
 endef
 
+define icon_template
+$(2): $(1)
+	cp $$^ $$@
+endef
+
 first = $(firstword $(subst -->, ,$(1)))
 last = $(lastword $(subst -->, ,$(1)))
 
 $(foreach theme,$(THEMES), \
 	$(eval $(call theme_template,$(theme))) \
 	$(foreach file,$(patsubst src/%,%,$(FIXED) $(SCALABLE)),$(eval $(call svg_template,$(theme),$(file)))) \
-	$(foreach file,$(ICON_FILES:%.svg=%.png),$(eval $(call 24_template,$(theme),$(file)))) \
+	$(foreach file,$(ONESIZE_FILES:%.svg=%.png),$(eval $(call 24_template,$(theme),$(file)))) \
 	$(foreach link,$(LINK_LIST),$(foreach size,$(SIZES),$(eval $(call link_template \
 		,$(theme)/$(size),$(call first,$(link)),$(call last,$(link)))))) \
 	$(foreach link,$(LINK_LIST),$(eval $(call link_template \
 		,$(theme)/scalable,$(patsubst %.png,%.svg,$(call first,$(link))),$(patsubst %.png,%.svg,$(call last,$(link)))))) \
+	$(foreach icon,$(ICON_FILES),$(eval $(call icon_template,$(icon),$(patsubst src/%,$(theme)/%,$(icon))))) \
 )
 
 clean:
