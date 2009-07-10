@@ -67,11 +67,13 @@ endef
 
 define link_template
 $(1)/$(3):
+	mkdir -p $$(dir $$@)
 	ln -sf $(2) $$@
 endef
 
 define icon_template
 $(2): $(1)
+	mkdir -p $$(dir $$@)
 	cp $$^ $$@
 endef
 
