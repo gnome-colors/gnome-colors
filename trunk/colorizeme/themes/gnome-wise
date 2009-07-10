@@ -1,5 +1,5 @@
 Name=GNOME-Wise
-Color1=#b8d67a
-Color2=#a7cc5c
-Color3=#789e2d
-Color4=#42770c
+LightFolderBase=#b8d67a
+LightBase=#a7cc5c
+MediumBase=#789e2d
+DarkStroke=#42770c

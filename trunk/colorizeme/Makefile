@@ -32,10 +32,10 @@ all: $(DST_FILES)
 	inkscape -f $< -e $@
 
 define theme_template
-$(1)_c1 := $$(call config,$(1),Color1)
-$(1)_c2 := $$(call config,$(1),Color2)
-$(1)_c3 := $$(call config,$(1),Color3)
-$(1)_c4 := $$(call config,$(1),Color4)
+$(1)_c1 := $$(call config,$(1),LightFolderBase)
+$(1)_c2 := $$(call config,$(1),LightBase)
+$(1)_c3 := $$(call config,$(1),MediumBase)
+$(1)_c4 := $$(call config,$(1),DarkStroke)
 $(1)_sed := s/\#8fb3d9/$$($(1)_c1)/g;s/\#729fcf/$$($(1)_c2)/g;s/\#3465a4/$$($(1)_c3)/g;s/\#204a87/$$($(1)_c4)/g
 
 $(1): $(call THEME_DST_FILES,$(1))

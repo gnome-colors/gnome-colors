@@ -1,5 +1,5 @@
 Name=GNOME-Human
-Color1=#febc70
-Color2=#faa546
-Color3=#e07a1f
-Color4=#ce5c00
+LightFolderBase=#febc70
+LightBase=#faa546
+MediumBase=#e07a1f
+DarkStroke=#ce5c00

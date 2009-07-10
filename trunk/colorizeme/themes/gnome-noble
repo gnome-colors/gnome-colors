@@ -1,5 +1,5 @@
 Name=GNOME-Noble
-Color1=#bd97b9
-Color2=#ad7fa8
-Color3=#75507b
-Color4=#5c3566
+LightFolderBase=#bd97b9
+LightBase=#ad7fa8
+MediumBase=#75507b
+DarkStroke=#5c3566
