@@ -57,12 +57,16 @@ help:
 	@echo "    clean        Deletes all files created by this makefile."
 	@echo "    distclean    Removes all files, which are not part of the distribution."
 	@echo "    svnclean     Removes all files, which are not part of the repository."
+	@echo "    fixperms     Fixes permissions of all files."
 	@echo "    dist         Creates a distribution tar file for $(PROJECT)."
 	@echo "    help         Displays this help."
 	@echo "    bz2          Create a distribution .tar.bz2 file."
 	@echo "    gz           Create a distribution .tar.gz file."
 	@echo "    install      Installs $(PROJECT) system-wide."
 	@echo "    uninstall    Removes $(PROJECT) from the system."
+
+fixperms:
+	find * ! -wholename '*/.*' -a -type f -a ! -perm 644 -exec chmod 644 {} \; -printf "chmod 644 %p\n"
 
 bz2: $(PACKAGE).tar.bz2
 
@@ -78,9 +82,11 @@ $(THEME_TARBALLS): %.tar.bz2: %.tar
 	bzip2 -cz9 $< > $@
 
 $(PACKAGE).tar.bz2: $(DIST_FILES)
+	$(MAKE) fixperms
 	tar -c --transform='s|^|$(PACKAGE)/|' $^ | bzip2 -cz9 > $@
 
 $(PACKAGE).tar.gz: $(DIST_FILES)
+	$(MAKE) fixperms
 	tar -c --transform='s|^|$(PACKAGE)/|' $^ | gzip -cn9 > $@
 
 install: uninstall
@@ -113,7 +119,7 @@ uninstall:
 		THEME=$$(echo $$DIR | sed 's|^[^/]*/||'); \
 		rm -rf "$(DESTDIR)/usr/share/gdm/themes/$$THEME"; \
 	done
-	for FILE in $(WALLPAPER); do rm -f "$(DESTDIR)/usr/share/backgrounds/$$FILE"; done
-	for FILE in $(PROPERTIES); do rm -f "$(DESTDIR)/usr/share/$$FILE"; done
+	rm -f $(addprefix $(DESTDIR)/usr/share/backgrounds/,$(WALLPAPER))
+	rm -f $(addprefix $(DESTDIR)/usr/share/,$(PROPERTIES))
 
 .PHONY: clean distclean help install svnclean uninstall

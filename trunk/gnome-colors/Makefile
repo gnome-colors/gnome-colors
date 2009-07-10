@@ -40,30 +40,32 @@ help:
 	@echo "    user-uninstall    Removes $(PROJECT) from the user directory."
 
 fixperms:
-	find $(THEMES) ! -wholename '*/.*' -a -type f -a ! -perm 644 -exec chmod 644 {} \; -printf "chmod 644 %p\n"
+	find * ! -wholename '*/.*' -a -type f -a ! -perm 644 -exec chmod 644 {} \; -printf "chmod 644 %p\n"
 
 bz2: $(PACKAGE).tar.bz2
 
 gz: $(PACKAGE).tar.gz
 
-$(PACKAGE).tar.bz2: fixperms $(DIST_FILES)
-	tar -c $(DIST_FILES) | bzip2 -cz9 > $@
+$(PACKAGE).tar.bz2: $(DIST_FILES)
+	$(MAKE) fixperms
+	tar -c $^ | bzip2 -cz9 > $@
 
-$(PACKAGE).tar.gz: fixperms $(DIST_FILES)
-	tar -c $(DIST_FILES) | gzip -cn9 > $@
+$(PACKAGE).tar.gz: $(DIST_FILES)
+	$(MAKE) fixperms
+	tar -c $^ | gzip -cn9 > $@
 
 install: uninstall
 	for DIR in $(patsubst %/*.*,%,$(FILES)); do mkdir -p $(SYSTEM)/$$DIR; done
 	for FILE in $(FILES); do cp -d $$FILE $(SYSTEM)/$$FILE; done
 
-uninstall:
-	for THEME in $(THEMES); do rm -rf "$(SYSTEM)/$$THEME"; done
-
 user-install: user-uninstall
 	for DIR in $(patsubst %/*.*,%,$(FILES)); do mkdir -p $(USER)/$$DIR; done
 	for FILE in $(FILES); do cp -d $$FILE $(USER)/$$FILE; done
 
+uninstall:
+	rm -rf $(addprefix $(SYSTEM)/,$(THEMES))
+
 user-uninstall:
-	for THEME in $(THEMES); do rm -rf "$(USER)/$$THEME"; done
+	rm -rf $(addprefix $(USER)/,$(THEMES))
 
 .PHONY: clean fixperms help install uninstall user-install user-uninstall
