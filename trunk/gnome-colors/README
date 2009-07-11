@@ -8,7 +8,8 @@ To install, drag and drop the .tar.gz file into GNOME's Appearance Preferences,
 or extract it and copy the gnome-* folders to /usr/share/icons as administrator
 (i.e. sudo nautilus /usr/share/icons in Ubuntu). The gnome-colors-common folder
 is a required dependency. You MUST install it in order for all the icon sets to
-work correctly.
+work correctly. If you install in this manner, it is VERY recommended to always
+remove a previous version before installation.
 
 You may also use the included Makefile for system-wide installation, just type
 "make install" as administrator or "make user-install" for per-user
@@ -34,8 +35,6 @@ must type in a terminal: sudo ln -s ~/.icons /root
 
 Please read the "Authors" and "Copying" files!
 
-It's ALWAYS best to remove a previous version before upgrading!
-
 ####################
 THEME CREATION:    #
 ####################
@@ -46,12 +45,13 @@ GNOME-Colors supports complete, scripted recoloring and the creation of new
 color variations automatically. To create a custom version of gnome-colors, just
 follow the following instructions:
 
-1. Install Inkscape. It is a required dependency for building gnome-colors.
-2. Browse to the /themes folder and delete all the gnome-* files except for one.
-3. Rename this remaining file to "icon-theme" (anything you like, no spaces).
+1. You need Inkscape. and Imagemagic. They are required dependencies for
+   building gnome-colors from source.
+2. Browse to the /themes folder and make a copy of any of the existing files.
+3. Rename the copied file to "custom" or anything you like (no spaces!).
 4. Open said file in a text editor, and change the name/values to your liking.
-5. Run the "make install" command as administrator in the folder containing the
-   makefile. For Ubuntu, the command is "sudo make install".
+5. Run "make install-custom" as administrator or "make user-install-custom" to
+   install per-user, where "custom" is the name of the icon set and theme file.
 6. That's it! You now have a complete, custom gnome-colors variation installed
    into your system.
 
