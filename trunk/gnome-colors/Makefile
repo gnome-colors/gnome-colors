@@ -8,6 +8,10 @@ THEME_FILES := $(wildcard themes/*)
 LINKS_FILE := links
 DIST_EXTRA := Makefile Palette.svg
 
+VERSION := $(shell head -n 1 ChangeLog | cut -d ' ' -f 1)
+DIST_PACKAGE := $(PROJECT)-$(VERSION)
+SRC_PACKAGE := $(PROJECT)-src-$(VERSION)
+
 ifeq ($(THEME_FILES),)
 THEMES := \
 	gnome-brave \
@@ -48,10 +52,6 @@ SRC_DIST_FILES := \
 	$(DIST_EXTRA) \
 	$(THEME_FILES) \
 	$(LINKS_FILE)
-
-VERSION := $(shell head -n 1 ChangeLog | cut -d ' ' -f 1)
-DIST_PACKAGE := $(PROJECT)-$(VERSION)
-SRC_PACKAGE := $(PROJECT)-src-$(VERSION)
 
 config = $(shell grep "^$(2)=" themes/$(1) | sed "s/^$(2)=//")
 
