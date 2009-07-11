@@ -69,7 +69,7 @@ endef
 define png_template
 $(1)/$(2).png: src/$(2).svg themes/$(1)
 	mkdir -p $$(dir $$@)
-	sed "$$($(1)_sed)" $$< | inkscape -f /dev/stdin -e $$@
+	sed "$$($(1)_sed)" $$< | inkscape --without-gui -f /dev/stdin -e $$@
 endef
 
 define svg_template
