@@ -45,7 +45,7 @@ GNOME-Colors supports complete, scripted recoloring and the creation of new
 color variations automatically. To create a custom version of gnome-colors, just
 follow the following instructions:
 
-1. You need Inkscape. and Imagemagic. They are required dependencies for
+1. You need Inkscape. and ImageMagick. They are required dependencies for
    building gnome-colors from source.
 2. Browse to the /themes folder and make a copy of any of the existing files.
 3. Rename the copied file to "custom" or anything you like (no spaces!).
