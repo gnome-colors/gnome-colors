@@ -196,9 +196,9 @@ $(foreach file,$(DST_FILES) $(COMMON_FILES),$(eval $(call install_template,$(fil
 $(foreach file,$(DST_LINKS) $(COMMON_LINKS),$(eval $(call install_links_template,$(file))))
 
 define theme_install_template
-install-$(1): uninstall-$(1) $(addprefix $(SYSTEM)/,$(call THEME_DST_FILES,$(1)) $(call THEME_DST_LINKS,$(1)))
+install-$(1): $(addprefix $(SYSTEM)/,$(call THEME_DST_FILES,$(1)) $(call THEME_DST_LINKS,$(1)))
 
-user-install-$(1): user-uninstall-$(1) $(addprefix $(USER)/,$(call THEME_DST_FILES,$(1)) $(call THEME_DST_LINKS,$(1)))
+user-install-$(1): $(addprefix $(USER)/,$(call THEME_DST_FILES,$(1)) $(call THEME_DST_LINKS,$(1)))
 
 uninstall-$(1):
 	rm -rf $(SYSTEM)/$(1)
@@ -211,9 +211,9 @@ endef
 
 $(foreach theme,$(THEMES) gnome-colors-common, $(eval $(call theme_install_template,$(theme))))
 
-install: uninstall $(addprefix $(SYSTEM)/,$(DST_FILES) $(DST_LINKS) $(COMMON_FILES) $(COMMON_LINKS))
+install: $(addprefix $(SYSTEM)/,$(DST_FILES) $(DST_LINKS) $(COMMON_FILES) $(COMMON_LINKS))
 
-user-install: user-uninstall $(addprefix $(USER)/,$(DST_FILES) $(DST_LINKS) $(COMMON_FILES) $(COMMON_LINKS))
+user-install: $(addprefix $(USER)/,$(DST_FILES) $(DST_LINKS) $(COMMON_FILES) $(COMMON_LINKS))
 
 uninstall:
 	rm -rf $(addprefix $(SYSTEM)/,$(THEMES) gnome-colors-common)

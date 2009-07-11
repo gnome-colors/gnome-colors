@@ -89,7 +89,7 @@ $(PACKAGE).tar.gz: $(DIST_FILES)
 	$(MAKE) fixperms
 	tar -c --transform='s|^|$(PACKAGE)/|' $^ | gzip -cn9 > $@
 
-install: uninstall
+install:
 # extract tarballs
 	for THEME in $(THEMES); do \
 		if test ! -d $$THEME; then \
