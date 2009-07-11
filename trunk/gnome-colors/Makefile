@@ -61,19 +61,19 @@ $(1)_sed := s/\#8fb3d9/$$($(1)_c1)/g;s/\#729fcf/$$($(1)_c2)/g;s/\#3465a4/$$($(1)
 
 $(1): $(call THEME_DST_FILES,$(1)) $(call THEME_DST_LINKS,$(1))
 
-$(1)/index.theme: src/index.theme
+$(1)/index.theme: src/index.theme themes/$(1)
 	mkdir -p $$(dir $$@)
 	sed "s/@NAME@/$(call config,$(1),Name)/" $$< > $$@
 endef
 
 define png_template
-$(1)/$(2).png: src/$(2).svg
+$(1)/$(2).png: src/$(2).svg themes/$(1)
 	mkdir -p $$(dir $$@)
 	sed "$$($(1)_sed)" $$< | inkscape -f /dev/stdin -e $$@
 endef
 
 define svg_template
-$(1)/$(2): src/$(2)
+$(1)/$(2): src/$(2) themes/$(1)
 	mkdir -p $$(dir $$@)
 	sed "$$($(1)_sed)" $$< > $$@
 endef
@@ -93,7 +93,7 @@ endef
 define icon_template
 $(2): $(1)
 	mkdir -p $$(dir $$@)
-	cp $$^ $$@
+	cp $$< $$@
 endef
 
 first = $(firstword $(subst -->, ,$(1)))
