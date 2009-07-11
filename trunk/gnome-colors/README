@@ -1,3 +1,9 @@
+####################
+INSTALLATION:      #
+####################
+This section refers only to the distributable package. For theme creation, skip
+to the next section.
+
 To install, drag and drop the .tar.gz file into GNOME's Appearance Preferences,
 or extract it and copy the gnome-* folders to /usr/share/icons as administrator
 (i.e. sudo nautilus /usr/share/icons in Ubuntu). The gnome-colors-common folder
@@ -28,6 +34,22 @@ must type in a terminal: sudo ln -s ~/.icons /root
 
 Please read the "Authors" and "Copying" files!
 
-It's always best to remove a previous version before upgrading!
+It's ALWAYS best to remove a previous version before upgrading!
 
-Enjoy!
+####################
+THEME CREATION:    #
+####################
+This section refers only to the sources package. The sources package can be
+downloaded separately from the distributable package.
+
+GNOME-Colors supports complete, scripted recoloring and the creation of new
+color variations automatically. To create a custom version of gnome-colors, just
+follow the following instructions:
+
+1. Install Inkscape. It is a required dependency for building gnome-colors.
+2. Browse to the /themes folder and delete all the gnome-* files except for one.
+3. Rename this remaining file to "icon-theme" (anything you like, no spaces).
+4. Open said file in a text editor, and change the name/values to your liking.
+5. Run the make install command in the folder containing the makefile.
+6. That's it! You now have a complete, custom gnome-colors variation installed
+   into your system.
