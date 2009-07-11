@@ -204,6 +204,22 @@ endef
 $(foreach file,$(DST_FILES) $(COMMON_FILES),$(eval $(call install_template,$(file))))
 $(foreach file,$(DST_LINKS) $(COMMON_LINKS),$(eval $(call install_links_template,$(file))))
 
+define theme_install_template
+install-$(1): uninstall-$(1) $(addprefix $(SYSTEM)/,$(call THEME_DST_FILES,$(1)) $(call THEME_DST_LINKS,$(1)))
+
+user-install-$(1): user-uninstall-$(1) $(addprefix $(USER)/,$(call THEME_DST_FILES,$(1)) $(call THEME_DST_LINKS,$(1)))
+
+uninstall-$(1):
+	rm -rf $(SYSTEM)/$(1)
+
+user-uninstall-$(1):
+	rm -rf $(USER)/$(1)
+
+UNINSTALL_TARGETS += uninstall-$(1) user-uninstall-$(1)
+endef
+
+$(foreach theme,$(THEMES) gnome-colors-common, $(eval $(call theme_install_template,$(theme))))
+
 install: uninstall $(addprefix $(SYSTEM)/,$(DST_FILES) $(DST_LINKS) $(COMMON_FILES) $(COMMON_LINKS))
 
 user-install: user-uninstall $(addprefix $(USER)/,$(DST_FILES) $(DST_LINKS) $(COMMON_FILES) $(COMMON_LINKS))
@@ -214,4 +230,4 @@ uninstall:
 user-uninstall:
 	rm -rf $(addprefix $(USER)/,$(THEMES) gnome-colors-common)
 
-.PHONY: check clean fixperms help install uninstall user-install user-uninstall
+.PHONY: check clean fixperms help uninstall user-uninstall $(UNINSTALL_TARGETS)
