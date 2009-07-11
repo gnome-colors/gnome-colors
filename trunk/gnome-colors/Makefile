@@ -152,9 +152,9 @@ help:
 fixperms:
 	find * ! -wholename '*/.*' -a -type f -a ! -perm 644 -exec chmod 644 {} \; -printf "chmod 644 %p\n"
 
-bz2: $(addprefix .tar.bz2,$(TARBALLS))
+bz2: $(addsuffix .tar.bz2,$(TARBALLS))
 
-gz: $(addprefix .tar.gz,$(TARBALLS))
+gz: $(addsuffix .tar.gz,$(TARBALLS))
 
 # The tar command must be split, otherwise you get this error:
 # make: execvp: /bin/sh: Argument list too long
