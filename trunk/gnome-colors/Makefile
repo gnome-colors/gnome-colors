@@ -1,9 +1,6 @@
 PROJECT := gnome-colors
 DOCS := AUTHORS ChangeLog COPYING README
-SRC_SIZES := \
-	src/16x16 \
-	src/22x22 \
-	src/32x32
+SIZES := 16x16 22x22 24x24 32x32
 THEME_FILES := $(wildcard themes/*)
 LINKS_FILE := links
 DIST_EXTRA := Makefile Palette.svg
@@ -13,19 +10,14 @@ DIST_PACKAGE := $(PROJECT)-$(VERSION)
 SRC_PACKAGE := $(PROJECT)-src-$(VERSION)
 
 ifeq ($(THEME_FILES),)
-THEMES := \
-	gnome-brave \
-	gnome-dust \
-	gnome-human \
-	gnome-noble \
-	gnome-wine \
-	gnome-wise
+ALL_THEMES := $(shell find * -maxdepth 1 ! -wholename '*/.*' -type f -name index.theme -printf "%h ")
+THEMES := $(filter-out src,$(filter-out gnome-colors-common,$(ALL_THEMES)))
 TARBALLS := $(DIST_PACKAGE)
 else
 THEMES := $(notdir $(THEME_FILES))
 TARBALLS := $(DIST_PACKAGE) $(SRC_PACKAGE)
 endif
-FIXED := $(shell find $(SRC_SIZES) ! -wholename '*/.*' -type f -name '*.svg' 2> /dev/null)
+FIXED := $(shell find src/*x* ! -wholename '*/.*' -type f -name '*.svg' 2> /dev/null)
 SCALABLE := $(shell find src/scalable ! -wholename '*/.*' -type f -name '*.svg' 2> /dev/null)
 ICON_FILES := $(shell find src ! -wholename '*/.*' -type f -name '*.icon' 2> /dev/null)
 COMMON_FILES := $(shell find gnome-colors-common ! -wholename '*/.*' -type f)
@@ -34,7 +26,6 @@ SRC_FILES := $(shell find src ! -wholename '*/.*' -type f 2> /dev/null)
 ONESIZE_FILES := $(patsubst src/scalable/%,%,$(SCALABLE))
 LINK_LIST := $(shell sed "s/ /-->/" $(LINKS_FILE) 2> /dev/null)
 LINK_FILES := $(foreach link,$(LINK_LIST),$(lastword $(subst -->, ,$(link))))
-SIZES := $(notdir $(SRC_SIZES)) 24x24
 THEME_DST_FILES = $(1)/index.theme \
 	$(patsubst src/%,$(1)/%,$(SCALABLE)) \
 	$(addprefix $(1)/,$(FIXED:src/%.svg=%.png)) \
