@@ -1,5 +1,5 @@
 Name=GNOME-Night
-LightFolderBase=#ACACAC
-LightBase=#9C9C9C
+LightFolderBase=#ADADAD
+LightBase=#999999
 MediumBase=#808080
-DarkStroke=#575757
+DarkStroke=#666666
