@@ -1,29 +1,26 @@
 PROJECT := shiki-colors
 DOCS := AUTHORS ChangeLog COPYING README
-# Spaces in filenames must be escaped with backslashes.
 THEMES := \
 	Shiki-Brave \
-	Shiki-Colors\ Easy\ Metacity \
-	Shiki-Colors\ Metacity \
-	Shiki-Colors\ Striped\ Metacity \
+	Shiki-Colors-Easy-Metacity \
+	Shiki-Colors-Metacity \
+	Shiki-Colors-Striped-Metacity \
 	Shiki-Dust \
 	Shiki-Human \
 	Shiki-Noble \
 	Shiki-Wine \
 	Shiki-Wise
-WALLPAPER := Arc-Colors\ Transparent\ Wallpaper.png
+WALLPAPER := Arc-Colors-Transparent-Wallpaper.png
 DIST_EXTRA := Makefile userChrome.css
 
-FILES := $(shell find $(THEMES) \( -type f -o -type l \) -a ! -wholename '*/.*' -printf '%p\n' | sed 's/ /\\ /g;s/\n/ /g')
+FILES := $(shell find $(THEMES) ! -wholename '*/.*' -type f)
 USER := /home/$(shell whoami)/.themes
 SYSTEM := $(DESTDIR)/usr/share/themes
+SYSTEM_WP := $(DESTDIR)/usr/share/backgrounds
 DIST_FILES := $(FILES) $(DOCS) $(WALLPAPER) $(DIST_EXTRA)
 
 VERSION := $(shell head -n 1 ChangeLog | cut -d ' ' -f 1)
 PACKAGE := $(PROJECT)-$(VERSION)
-
-# addprefix command for files containing escaped spaces.
-ADDPREFIX = $(subst +,\ ,$(addprefix $(1),$(subst \ ,+,$(2))))
 
 all:
 
@@ -61,18 +58,31 @@ $(PACKAGE).tar.gz: $(DIST_FILES)
 	$(MAKE) fixperms
 	tar -c $(DIST_FILES) | gzip -cn9 > $@
 
-install: uninstall
-	for FILE in $(FILES); do install -D -m 644 "$$FILE" "$(SYSTEM)/$$FILE"; done
-	for FILE in $(WALLPAPER); do install -D -m 644 "$$FILE" "$(DESTDIR)/usr/share/backgrounds/$$FILE"; done
+define install_template
+$(SYSTEM)/$(1): $(1)
+	install -D -m 644 $$< $$@
 
-user-install: user-uninstall
-	for FILE in $(FILES); do install -D -m 644 "$$FILE" "$(USER)/$$FILE"; done
+$(USER)/$(1): $(1)
+	install -D -m 644 $$< $$@
+endef
+
+define wallpaper_template
+$(SYSTEM_WP)/$(1): $(1)
+	install -D -m 644 $$< $$@
+endef
+
+$(foreach file,$(FILES),$(eval $(call install_template,$(file))))
+$(foreach file,$(WALLPAPER),$(eval $(call wallpaper_template,$(file))))
+
+install: $(addprefix $(SYSTEM)/,$(FILES)) $(addprefix $(SYSTEM_WP)/,$(WALLPAPER))
+
+user-install: $(addprefix $(USER)/,$(FILES))
 
 uninstall:
-	rm -rf $(call ADDPREFIX,$(SYSTEM)/,$(THEMES))
-	rm -f $(call ADDPREFIX,$(DESTDIR)/usr/share/backgrounds/,$(WALLPAPER))
+	rm -rf $(addprefix $(SYSTEM)/,$(THEMES))
+	rm -f $(addprefix $(SYSTEM_WP)/,$(WALLPAPER))
 
 user-uninstall:
-	rm -rf $(call ADDPREFIX,$(USER)/,$(THEMES))
+	rm -rf $(addprefix $(USER)/,$(THEMES))
 
-.PHONY: clean help install uninstall user-install user-uninstall
+.PHONY: clean help uninstall user-uninstall
