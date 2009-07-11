@@ -19,9 +19,9 @@ Many application icons exist all thanks to the Tango Generator project.
 ####################
 SPECIAL THANKS TO: #
 ####################
-* Jakub 'jimmac' Steiner, Andreas Nilsson, Lapo Calamandrei and all the other
-  talented artists who make tons of incredible artwork for Linux. GNOME-Colors
-  would not exist at all without these people.
+* Jakub 'jimmac' Steiner, Andreas Nilsson, Lapo Calamandrei, Hylke Bons and all
+  the other talented artists who make tons of incredible artwork for Linux.
+  GNOME-Colors would not exist at all without these people.
 
 * The GNOME and Tango projects, on which GNOME-Colors is decidedly and
   admittedly based 99% on.
@@ -29,6 +29,12 @@ SPECIAL THANKS TO: #
 * Benjamin Drung and Andrew Starr-Bochicchio for doing the Debian/Ubuntu
   packaging, maintaining the official PPA repository, and helping to resolve all
   licensing conflicts in order to make GNOME-Colors freer and easier than ever!
+
+* Benjamin Drung, once again, for engineering the entire move to SVN, the
+  creation of makefiles and all the other scripts that allow for automatic
+  recoloring.
+
+* The Ubuntu devs who worked on getting this on the archives for Karmic.
 
 * The Tango Generator project for making dozens of consistent and beautiful
   application icons available for use.
