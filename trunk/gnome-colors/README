@@ -50,6 +50,12 @@ follow the following instructions:
 2. Browse to the /themes folder and delete all the gnome-* files except for one.
 3. Rename this remaining file to "icon-theme" (anything you like, no spaces).
 4. Open said file in a text editor, and change the name/values to your liking.
-5. Run the make install command in the folder containing the makefile.
+5. Run the "make install" command as administrator in the folder containing the
+   makefile. For Ubuntu, the command is "sudo make install".
 6. That's it! You now have a complete, custom gnome-colors variation installed
    into your system.
+
+NOTE: The make process will take anywhere between a few minutes to a very long
+      time depending on your system specs. If you own a dual-core pc, you can
+      run "make install -j3" for the best performance. Tri-core processors would
+      use "-j4" and so on...
