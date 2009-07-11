@@ -10,11 +10,12 @@ DIST_PACKAGE := $(PROJECT)-$(VERSION)
 SRC_PACKAGE := $(PROJECT)-src-$(VERSION)
 
 ifeq ($(THEME_FILES),)
-ALL_THEMES := $(shell find * -maxdepth 1 ! -wholename '*/.*' -type f -name index.theme -printf "%h ")
-THEMES := $(filter-out src,$(filter-out gnome-colors-common,$(ALL_THEMES)))
+ALL_THEMES := $(filter-out src,$(shell find * -maxdepth 1 ! -wholename '*/.*' -type f -name index.theme -printf "%h "))
+THEMES := $(filter-out gnome-colors-common,$(ALL_THEMES))
 TARBALLS := $(DIST_PACKAGE)
 else
 THEMES := $(notdir $(THEME_FILES))
+ALL_THEMES := $(THEMES) gnome-colors-common
 TARBALLS := $(DIST_PACKAGE) $(SRC_PACKAGE)
 endif
 FIXED := $(shell find src/*x* ! -wholename '*/.*' -type f -name '*.svg' 2> /dev/null)
@@ -199,7 +200,9 @@ define theme_install_template
 install-$(1): $(addprefix $(SYSTEM)/,$(call THEME_DST_FILES,$(1)) $(call THEME_DST_LINKS,$(1)))
 
 user-install-$(1): $(addprefix $(USER)/,$(call THEME_DST_FILES,$(1)) $(call THEME_DST_LINKS,$(1)))
+endef
 
+define theme_uninstall_template
 uninstall-$(1):
 	rm -rf $(SYSTEM)/$(1)
 
@@ -209,16 +212,21 @@ user-uninstall-$(1):
 UNINSTALL_TARGETS += uninstall-$(1) user-uninstall-$(1)
 endef
 
-$(foreach theme,$(THEMES) gnome-colors-common, $(eval $(call theme_install_template,$(theme))))
+$(foreach theme,$(THEMES), $(eval $(call theme_install_template,$(theme))))
+$(foreach theme,$(ALL_THEMES), $(eval $(call theme_uninstall_template,$(theme))))
 
-install: $(addprefix $(SYSTEM)/,$(DST_FILES) $(DST_LINKS) $(COMMON_FILES) $(COMMON_LINKS))
+install-gnome-colors-common: $(addprefix $(SYSTEM)/,$(COMMON_FILES) $(COMMON_LINKS))
 
-user-install: $(addprefix $(USER)/,$(DST_FILES) $(DST_LINKS) $(COMMON_FILES) $(COMMON_LINKS))
+user-install-gnome-colors-common: $(addprefix $(USER)/,$(COMMON_FILES) $(COMMON_LINKS))
+
+install: $(addprefix install-,$(ALL_THEMES))
+
+user-install: $(addprefix user-install-,$(ALL_THEMES))
 
 uninstall:
-	rm -rf $(addprefix $(SYSTEM)/,$(THEMES) gnome-colors-common)
+	rm -rf $(addprefix $(SYSTEM)/,$(ALL_THEMES))
 
 user-uninstall:
-	rm -rf $(addprefix $(USER)/,$(THEMES) gnome-colors-common)
+	rm -rf $(addprefix $(USER)/,$(ALL_THEMES))
 
 .PHONY: check clean fixperms help uninstall user-uninstall $(UNINSTALL_TARGETS)
