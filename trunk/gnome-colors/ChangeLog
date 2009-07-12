@@ -1,6 +1,8 @@
 5.2 (2009-07-11)
 * Minor consistency fixes.
 * Recreate all recolorable icons from source.
+* Gradient and stroke fixes to folders.
+* Better palette for Red (wine) variation.
 * Add a new color variation - Pink (Illustrious).
 * GNOME-Colors now allows for creating custom color icon sets from the source
   package. This means GNOME-Colors now has infinite possible color variations,
