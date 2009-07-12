@@ -4,12 +4,14 @@ THEMES := \
 	GDM-Themes/Arc-Brave \
 	GDM-Themes/Arc-Dust \
 	GDM-Themes/Arc-Human \
+	GDM-Themes/Arc-Illustrious \
 	GDM-Themes/Arc-Noble \
 	GDM-Themes/Arc-Wine \
 	GDM-Themes/Arc-Wise \
 	GDM-UserList-Themes/Arc-Brave-Userlist \
 	GDM-UserList-Themes/Arc-Dust-Userlist \
 	GDM-UserList-Themes/Arc-Human-Userlist \
+	GDM-UserList-Themes/Arc-Illustrious-Userlist \
 	GDM-UserList-Themes/Arc-Noble-Userlist \
 	GDM-UserList-Themes/Arc-Wine-Userlist \
 	GDM-UserList-Themes/Arc-Wise-Userlist
@@ -17,6 +19,7 @@ WALLPAPER := \
 	Arc-Brave.png \
 	Arc-Dust.png \
 	Arc-Human.png \
+	Arc-Illustrious.png \
 	Arc-Noble.png \
 	Arc-Wine.png \
 	Arc-Wise.png
