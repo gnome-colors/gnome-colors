@@ -1,4 +1,7 @@
-2.5+SVN (2009-07-04)
+2.6 (2009-07-11)
+* Add new Pink (Illustrious) color variation.
+
+2.5 (2009-07-04)
 * Update shutdown, suspend and logo icons to latest gnome-colors.
 * Brand new wallpapers! Darker colors for less eye-strain and support for any
   resolution or screen ratio below 2140x1200px.
