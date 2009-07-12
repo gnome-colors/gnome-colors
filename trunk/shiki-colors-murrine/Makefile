@@ -7,6 +7,7 @@ THEMES := \
 	Shiki-Colors-Striped-Metacity \
 	Shiki-Dust \
 	Shiki-Human \
+	Shiki-Illustrious \
 	Shiki-Noble \
 	Shiki-Wine \
 	Shiki-Wise
