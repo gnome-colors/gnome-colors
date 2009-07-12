@@ -14,7 +14,8 @@ remove a previous version before installation.
 You may also use the included Makefile for system-wide installation, just type
 "make install" as administrator or "make user-install" for per-user
 installation. For more options, type "make help". These commands should be run
-within the extracted folder that contains the Makefile.
+within the extracted folder that contains the Makefile. To uninstall, you should
+run "make uninstall" as administratior or "make user-uninstall" per-user.
 
 GNOME-Colors depends on the package "gnome-icon-theme". This package is already
 installed in almost all distributions with a GNOME desktop environment, but you
