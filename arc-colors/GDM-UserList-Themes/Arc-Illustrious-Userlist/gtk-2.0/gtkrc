@@ -6,7 +6,7 @@
 # ICONS 
 #########
 gtk-icon-sizes	= "gtk-button=16,16"
-gtk-icon-theme-name = "gnome-human"
+gtk-icon-theme-name = "gnome-illustrious"
 
 ##########################
 # GENERAL THEME SETTINGS 
@@ -60,13 +60,13 @@ style "clearlooks-default"
         bg[NORMAL]        = "#D8D8D8"
         bg[PRELIGHT]      = "#DDDDDD"
         bg[ACTIVE]        = "#B8B8B8"
-        bg[SELECTED]      = "#FAA546"
+        bg[SELECTED]      = "#f2939f"
         bg[INSENSITIVE]   = "#D8D8D8"
 
         base[NORMAL]      = "#FFFFFF"
         base[PRELIGHT]    = "#CECECE"
-        base[ACTIVE]      = "#FAA546"
-        base[SELECTED]    = "#FAA546"
+        base[ACTIVE]      = "#f2939f"
+        base[SELECTED]    = "#f2939f"
         base[INSENSITIVE] = "#D8D8D8"
 
         text[NORMAL]      = "#1A1A1A"
@@ -105,11 +105,11 @@ style "clearlooks-wider"
 
 style "clearlooks-entry" = "clearlooks-wider" {
 
-	bg[SELECTED] = "#FDDBB5"
+	bg[SELECTED] = "#FAD4D9"
 	fg[SELECTED] = "#1A1A1A"
 
 	engine "clearlooks" {
-		focus_color = "#A86B28"
+		focus_color = "#BF3E4E"
 	}
 }
 
@@ -140,9 +140,9 @@ style "clearlooks-menu"
 {
 	ythickness = 0
 	xthickness = 0
-	bg[SELECTED]	= "#E88D28"
+	bg[SELECTED]	= "#E26979"
 	bg[NORMAL]	= "#3C3C3C"
-	bg[PRELIGHT]	= "#E88D28"
+	bg[PRELIGHT]	= "#E26979"
 	bg[ACTIVE]	= "#333333"
 	bg[INSENSITIVE]	= "#3C3C3C"
 	fg[NORMAL]	= "#E6E6E6"
@@ -164,8 +164,8 @@ style "clearlooks-menu"
 
 style "clearlooks-menu-item" = "clearlooks-wider"
 {
-	bg[SELECTED]	= "#E88D28"
-	bg[PRELIGHT]	= "#E88D28"
+	bg[SELECTED]	= "#E26979"
+	bg[PRELIGHT]	= "#E26979"
 	fg[NORMAL]	= "#E6E6E6"
 	fg[PRELIGHT]	= "#FFFFFF"
 	fg[SELECTED]	= "#FFFFFF"
@@ -184,9 +184,9 @@ style "clearlooks-separator-menu-item"
 style "clearlooks-menubar"
 {
 	ythickness = 0
-	bg[SELECTED]	= "#E88D28"
+	bg[SELECTED]	= "#E26979"
 	bg[NORMAL]	= "#3C3C3C"
-	bg[PRELIGHT]	= "#E88D28"
+	bg[PRELIGHT]	= "#E26979"
 	bg[ACTIVE]	= "#333333"
 	bg[INSENSITIVE]	= "#3C3C3C"
 	fg[NORMAL]	= "#E6E6E6"
