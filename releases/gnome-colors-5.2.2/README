@@ -1,0 +1,62 @@
+####################
+INSTALLATION:      #
+####################
+This section refers only to the distributable package. For theme creation, skip
+to the next section.
+
+To install, drag and drop the .tar.gz file into GNOME's Appearance Preferences,
+or extract it and copy the gnome-* folders to /usr/share/icons as administrator
+(i.e. sudo nautilus /usr/share/icons in Ubuntu). The gnome-colors-common folder
+is a required dependency. You MUST install it in order for all the icon sets to
+work correctly. If you install in this manner, it is VERY recommended to always
+remove a previous version before installation.
+
+You may also use the included Makefile for system-wide installation, just type
+"make install" as administrator or "make user-install" for per-user
+installation. For more options, type "make help". These commands should be run
+within the extracted folder that contains the Makefile. To uninstall, you should
+run "make uninstall" as administratior or "make user-uninstall" per-user.
+
+GNOME-Colors depends on the package "gnome-icon-theme". This package is already
+installed in almost all distributions with a GNOME desktop environment, but you
+may have to install this package if your distribution or desktop environment
+does not have it by default. 
+
+For more icon customization and features, you can install the GNOME-Colors
+Extras. They are available in the project page as the "extras-gnome-colors"
+package.
+
+An extra "tan" color variation is available at the project page, it depends on
+gnome-brave being installed and makes the icon set look more like the default
+gnome-icon-theme. The package is called "extras-gnome-tribute"
+
+If installed through the Appearance Preferences tool in Ubuntu (instead of
+extracting /usr/share/icons), for icons to theme root/admin applications, you
+must type in a terminal: sudo ln -s ~/.icons /root
+
+Please read the "Authors" and "Copying" files!
+
+####################
+THEME CREATION:    #
+####################
+This section refers only to the sources package. The sources package can be
+downloaded separately from the distributable package.
+
+GNOME-Colors supports complete, scripted recoloring and the creation of new
+color variations automatically. To create a custom version of gnome-colors, just
+follow the following instructions:
+
+1. You need Inkscape and ImageMagick. They are required dependencies for
+   building gnome-colors from source.
+2. Browse to the /themes folder and make a copy of any of the existing files.
+3. Rename the copied file to "custom" or anything you like (no spaces!).
+4. Open said file in a text editor, and change the name/values to your liking.
+5. Run "make install-custom" as administrator or "make user-install-custom" to
+   install per-user, where "custom" is the name of the icon set and theme file.
+6. That's it! You now have a complete, custom gnome-colors variation installed
+   into your system.
+
+NOTE: The make process will take anywhere between a few minutes to a very long
+      time depending on your system specs. If you own a dual-core PC, you can
+      run "make install -j3" for the best performance. Tri-core processors would
+      use "-j4" and so on...
