@@ -1,4 +1,5 @@
 Name=GNOME-Human
+Distribution=gnome-colors
 LightFolderBase=#febc70
 LightBase=#faa546
 MediumBase=#e07a1f

@@ -1,4 +1,5 @@
 Name=GNOME-Dust
+Distribution=gnome-colors
 LightFolderBase=#c2a78c
 LightBase=#b49372
 MediumBase=#906e4c

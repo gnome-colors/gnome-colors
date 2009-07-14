@@ -1,4 +1,5 @@
 Name=GNOME-Illustrious
+Distribution=gnome-colors
 LightFolderBase=#f7b0b9
 LightBase=#f2939f
 MediumBase=#dc6472
