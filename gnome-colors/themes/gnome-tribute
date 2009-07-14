@@ -1,0 +1,17 @@
+Name=GNOME-Tribute
+Distribution=extras
+LightFolderBase=#8fb3d9
+LightBase=#729fcf
+MediumBase=#3465a4
+DarkStroke=#204a87
+Alternatives=Folder Actions
+Folder_Files=actions/add-folder-to-archive.svg actions/document-open.svg actions/folder-copy.svg actions/folder-move.svg actions/folder-new.svg places/folder.svg places/folder-remote.svg places/folder-remote-smb.svg places/folder-remote-ssh.svg places/folder-saved-search.svg places/user-home.svg status/folder-open.svg
+Folder_LightFolderBase=#cccdbc
+Folder_LightBase=#bcbea7
+Folder_MediumBase=#a2a491
+Folder_DarkStroke=#7d7e60
+Actions_Files=actions/go-bottom.svg actions/go-down.svg actions/go-first.svg actions/go-jump.svg actions/go-last.svg actions/go-next.svg actions/go-previous.svg actions/go-top.svg actions/go-up.svg
+Actions_LightFolderBase=#b8d67a
+Actions_LightBase=#a7cc5c
+Actions_MediumBase=#789e2d
+Actions_DarkStroke=#42770c
