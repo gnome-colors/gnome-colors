@@ -1,5 +1,5 @@
 Name=GNOME-Tribute
-Distribution=extras
+Distribution=gnome-colors-extras
 LightFolderBase=#8fb3d9
 LightBase=#729fcf
 MediumBase=#3465a4

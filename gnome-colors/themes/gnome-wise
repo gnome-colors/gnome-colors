@@ -1,4 +1,5 @@
 Name=GNOME-Wise
+Distribution=gnome-colors
 LightFolderBase=#b8d67a
 LightBase=#a7cc5c
 MediumBase=#789e2d
