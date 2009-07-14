@@ -1,0 +1,48 @@
+2.6 (2009-07-14)
+* Add new Pink (Illustrious) color variation.
+
+2.5 (2009-07-04)
+* Update shutdown, suspend and logo icons to latest gnome-colors.
+* Brand new wallpapers! Darker colors for less eye-strain and support for any
+  resolution or screen ratio below 2140x1200px.
+* Project now moved to SVN, makefiles and updated documentation are included.
+
+2.3 (2009-06-24)
+* Update textboxes and included GTK's to better match the new human palette in
+  gnome-colors's new human icons.
+
+2.1 (2009-06-20)
+* Fix included GTK in Arc-Dust to better match Shiki-Dust and use GNOME-Dust
+  icons.
+* Update Arc-Dust to the latest version of Shiki-Dust and GNOME-Dust.
+
+2.0 (2009-06-20)
+* Add brand new Arc-Dust to complement Shiki-Dust and GNOME-Dust.
+* Updates for better consistency with latest gnome-colors.
+
+1.7.4 (2009-06-15)
+* Fix button spacing for Russian locale.
+
+1.7.3 (2009-06-10)
+* Minor fix to suspend icons.
+* Better consistency with latest gnome-colors in human theme.
+
+1.7.2 (2009-06-09)
+* Minor adjustment to halt icon.
+
+1.7.1 (2009-05-28)
+* Merge normal and userlist versions to a single package.
+
+1.7 (2009-05-20)
+* Fix minor textbox issues in both GDM themes.
+
+1.6 (2009-05-15)
+* Create brand new Userlist version.
+* Include gtkrc's based on Shiki-Colors for best system integration.
+
+1.5.1 (2009-05-11)
+* Add new scaling properties to the GDM's. Backgrounds now scale perfectly for
+  any 16:10, 5:4 or 4:3 screen ratios.
+* Removed Non-Wide versions, as it is unnecessary due to the changes above.
+* Clock now updates correctly.
+* Added a timer and message for cases when automatic login is enabled.
