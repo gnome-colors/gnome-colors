@@ -13,19 +13,18 @@ ifeq ($(THEME_FILES),)
 ALL_THEMES := $(filter-out src,$(shell find * -maxdepth 1 ! -wholename '*/.*' -type f -name index.theme -printf "%h "))
 THEMES := $(filter-out gnome-colors-common,$(ALL_THEMES))
 TARBALLS := $(DIST_PACKAGE)
+THEME_DST_FILES = $(shell find $(1) ! -wholename '*/.*' -type f)
+THEME_DST_LINKS = $(shell find $(1) ! -wholename '*/.*' -type l)
 else
 THEMES := $(notdir $(THEME_FILES))
 ALL_THEMES := $(THEMES) gnome-colors-common
 TARBALLS := $(DIST_PACKAGE) $(SRC_PACKAGE)
-endif
-FIXED := $(shell find src/*x* ! -wholename '*/.*' -type f -name '*.svg' 2> /dev/null)
-SCALABLE := $(shell find src/scalable ! -wholename '*/.*' -type f -name '*.svg' 2> /dev/null)
-ICON_FILES := $(shell find src ! -wholename '*/.*' -type f -name '*.icon' 2> /dev/null)
-COMMON_FILES := $(shell find gnome-colors-common ! -wholename '*/.*' -type f)
-COMMON_LINKS := $(shell find gnome-colors-common ! -wholename '*/.*' -type l)
-SRC_FILES := $(shell find src ! -wholename '*/.*' -type f 2> /dev/null)
+FIXED := $(shell find src/*x* ! -wholename '*/.*' -type f -name '*.svg')
+SCALABLE := $(shell find src/scalable ! -wholename '*/.*' -type f -name '*.svg')
+ICON_FILES := $(shell find src ! -wholename '*/.*' -type f -name '*.icon')
+SRC_FILES := $(shell find src ! -wholename '*/.*' -type f)
 ONESIZE_FILES := $(patsubst src/scalable/%,%,$(SCALABLE))
-LINK_LIST := $(shell sed "s/ /-->/" $(LINKS_FILE) 2> /dev/null)
+LINK_LIST := $(shell sed "s/ /-->/" $(LINKS_FILE))
 LINK_FILES := $(foreach link,$(LINK_LIST),$(lastword $(subst -->, ,$(link))))
 THEME_DST_FILES = $(1)/index.theme \
 	$(patsubst src/%,$(1)/%,$(SCALABLE)) \
@@ -34,6 +33,10 @@ THEME_DST_FILES = $(1)/index.theme \
 	$(patsubst src/%,$(1)/%,$(ICON_FILES))
 THEME_DST_LINKS = $(addprefix $(1)/scalable/,$(LINK_FILES:%.png=%.svg)) \
 	$(foreach size,$(SIZES),$(addprefix $(1)/$(size)/,$(LINK_FILES)))
+endif
+
+COMMON_FILES := $(shell find gnome-colors-common ! -wholename '*/.*' -type f)
+COMMON_LINKS := $(shell find gnome-colors-common ! -wholename '*/.*' -type l)
 DST_FILES := $(foreach theme,$(THEMES),$(call THEME_DST_FILES,$(theme)))
 DST_LINKS := $(foreach theme,$(THEMES),$(call THEME_DST_LINKS,$(theme)))
 USER := /home/$(shell whoami)/.icons
@@ -66,6 +69,10 @@ $(1)/index.theme: src/index.theme themes/$(1)
 	mkdir -p $$(dir $$@)
 	sed "s/@NAME@/$(call config,$(1),Name)/" $$< > $$@
 endef
+
+ifneq ($(THEME_FILES),)
+$(foreach theme,$(THEMES),$(eval $(call theme_template,$(theme))))
+endif
 
 define png_template
 $(1)/$(2).png: src/$(2).svg themes/$(1)
@@ -101,7 +108,6 @@ first = $(firstword $(subst -->, ,$(1)))
 last = $(lastword $(subst -->, ,$(1)))
 
 $(foreach theme,$(THEMES), \
-	$(eval $(call theme_template,$(theme))) \
 	$(foreach file,$(patsubst src/%.svg,%,$(FIXED)),$(eval $(call png_template,$(theme),$(file)))) \
 	$(foreach file,$(patsubst src/%,%,$(SCALABLE)),$(eval $(call svg_template,$(theme),$(file)))) \
 	$(foreach file,$(ONESIZE_FILES:%.svg=%.png),$(eval $(call 24_template,$(theme),$(file)))) \
@@ -212,8 +218,8 @@ user-uninstall-$(1):
 UNINSTALL_TARGETS += uninstall-$(1) user-uninstall-$(1)
 endef
 
-$(foreach theme,$(THEMES), $(eval $(call theme_install_template,$(theme))))
-$(foreach theme,$(ALL_THEMES), $(eval $(call theme_uninstall_template,$(theme))))
+$(foreach theme,$(THEMES),$(eval $(call theme_install_template,$(theme))))
+$(foreach theme,$(ALL_THEMES),$(eval $(call theme_uninstall_template,$(theme))))
 
 install-gnome-colors-common: $(addprefix $(SYSTEM)/,$(COMMON_FILES) $(COMMON_LINKS))
 
