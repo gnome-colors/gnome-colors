@@ -1,4 +1,11 @@
-4.3.1+SVN (2009-07-04)
+4.4 (2009-07-14)
+* Add new Pink (Illustrious) color variation.
+* Add support for gdm-user-switch applet in Karmic.
+* Fix panel matching in Dust-Murrine variant.
+* Remove spaces in metacity names for easier RPM packaging. You might have to
+  remove the old metacity folders or run make uninstall from a previous version.
+
+4.3.1 (2009-07-04)
 * Add makefile and updated documentation.
 * New transparent wallpaper based on latest Arc-Colors.
 * Add XFWM theme to Shiki-Dust.
