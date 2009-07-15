@@ -60,3 +60,10 @@ NOTE: The make process will take anywhere between a few minutes to a very long
       time depending on your system specs. If you own a dual-core PC, you can
       run "make install -j3" for the best performance. Tri-core processors would
       use "-j4" and so on...
+
+* When releasing a custom version built from the sources package, the resulting
+  package must be licensed under the GPL as well. In this case, the theme file
+  with the color palette is the source. It is recommended not to name any of the
+  resulting themes the same as any existing gnome-colors variant or include a
+  folder named "gnome-colors-common", as it will break or change existing
+  installations of GNOME-Colors.
