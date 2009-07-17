@@ -49,16 +49,35 @@ COMMON := $(COMMON_FILES) $(COMMON_LINKS)
 # all should be the first target
 all:
 
+help::
+	@echo "make targets:"
+
 ifneq ($(THEME_FILES),)
+
+COLORS = $(call config,$(1),Alternatives)
+
 all: $(BUILD)
-endif
+
+define color_template
+$(1)_$(2)1 := $$(call config,$(1),$(2)_LightFolderBase)
+$(1)_$(2)2 := $$(call config,$(1),$(2)_LightBase)
+$(1)_$(2)3 := $$(call config,$(1),$(2)_MediumBase)
+$(1)_$(2)4 := $$(call config,$(1),$(2)_DarkStroke)
+$(1)_$(2)_sed := s/\#8fb3d9/$$($(1)_$(2)1)/g;s/\#729fcf/$$($(1)_$(2)2)/g;s/\#3465a4/$$($(1)_$(2)3)/g;s/\#204a87/$$($(1)_$(2)4)/g
+$(1)_$(2)_FIXED := $(patsubst %.svg,%.png,$(foreach size,$(filter-out 24x24,$(SIZES)),$(addprefix $(size)/,$(call config,$(1),$(2)_Files))))
+$(1)_$(2)_SCALABLE := $(patsubst %.png,%.svg,$(addprefix scalable/,$(call config,$(1),$(2)_Files)))
+$(1)_$(2)_FILES := $$($(1)_$(2)_FIXED) $$($(1)_$(2)_SCALABLE)
+$(1)_ALTERNATIVES += $$($(1)_$(2)_FILES)
+endef
+
+$(foreach theme,$(THEMES),$(foreach color,$(call COLORS,$(theme)),$(eval $(call color_template,$(theme),$(color)))))
 
 define theme_template
-$(1)_c1 := $$(call config,$(1),LightFolderBase)
-$(1)_c2 := $$(call config,$(1),LightBase)
-$(1)_c3 := $$(call config,$(1),MediumBase)
-$(1)_c4 := $$(call config,$(1),DarkStroke)
-$(1)_sed := s/\#8fb3d9/$$($(1)_c1)/g;s/\#729fcf/$$($(1)_c2)/g;s/\#3465a4/$$($(1)_c3)/g;s/\#204a87/$$($(1)_c4)/g
+$(1)_default1 := $$(call config,$(1),LightFolderBase)
+$(1)_default2 := $$(call config,$(1),LightBase)
+$(1)_default3 := $$(call config,$(1),MediumBase)
+$(1)_default4 := $$(call config,$(1),DarkStroke)
+$(1)_default_sed := s/\#8fb3d9/$$($(1)_default1)/g;s/\#729fcf/$$($(1)_default2)/g;s/\#3465a4/$$($(1)_default3)/g;s/\#204a87/$$($(1)_default4)/g
 
 $(1): $(call THEME_BUILD,$(1))
 
@@ -67,21 +86,24 @@ $(1)/index.theme: src/index.theme themes/$(1)
 	sed "s/@NAME@/$(call config,$(1),Name)/" $$< > $$@
 endef
 
-ifneq ($(THEME_FILES),)
 $(foreach theme,$(THEMES),$(eval $(call theme_template,$(theme))))
-endif
 
 define png_template
 $(1)/$(2).png: src/$(2).svg themes/$(1)
 	@if test ! -d $$(dir $$@); then mkdir -p $$(dir $$@); echo "mkdir -p $$(dir $$@)"; fi
-	sed "$$($(1)_sed)" $$< | inkscape --without-gui -f /dev/stdin -e "$$(CURDIR)/$$@"
+	sed "$$($(1)_$(3)_sed)" $$< | inkscape --without-gui -f /dev/stdin -e "$$(CURDIR)/$$@"
 endef
 
 define svg_template
 $(1)/$(2): src/$(2) themes/$(1)
 	@if test ! -d $$(dir $$@); then mkdir -p $$(dir $$@); echo "mkdir -p $$(dir $$@)"; fi
-	sed "$$($(1)_sed)" $$< > $$@
+	sed "$$($(1)_$(3)_sed)" $$< > $$@
 endef
+
+$(foreach theme,$(THEMES),$(foreach color,$(call COLORS,$(theme)), \
+	$(foreach file,$(patsubst %.png,%,$($(theme)_$(color)_FIXED)),$(eval $(call png_template,$(theme),$(file),$(color)))) \
+	$(foreach file,$($(theme)_$(color)_SCALABLE),$(eval $(call svg_template,$(theme),$(file),$(color)))) \
+))
 
 define 24_template
 $(1)/24x24/$(2): $(1)/22x22/$(2)
@@ -105,8 +127,8 @@ first = $(firstword $(subst -->, ,$(1)))
 last = $(lastword $(subst -->, ,$(1)))
 
 $(foreach theme,$(THEMES), \
-	$(foreach file,$(patsubst src/%.svg,%,$(FIXED)),$(eval $(call png_template,$(theme),$(file)))) \
-	$(foreach file,$(patsubst src/%,%,$(SCALABLE)),$(eval $(call svg_template,$(theme),$(file)))) \
+	$(foreach file,$(filter-out $(patsubst %.png,%,$($(theme)_ALTERNATIVES)),$(patsubst src/%.svg,%,$(FIXED))),$(eval $(call png_template,$(theme),$(file),default))) \
+	$(foreach file,$(filter-out $($(theme)_ALTERNATIVES),$(patsubst src/%,%,$(SCALABLE))),$(eval $(call svg_template,$(theme),$(file),default))) \
 	$(foreach file,$(ONESIZE_FILES:%.svg=%.png),$(eval $(call 24_template,$(theme),$(file)))) \
 	$(foreach link,$(LINK_LIST),$(foreach size,$(SIZES),$(eval $(call link_template \
 		,$(theme)/$(size),$(call first,$(link)),$(call last,$(link)))))) \
@@ -116,8 +138,15 @@ $(foreach theme,$(THEMES), \
 )
 
 help::
-	@echo "make targets:"
-	@echo "    all                     Does all or nothing (default target)."
+	@echo "    all                     Build all files for all themes (default target)."
+	@echo "    THEME                   Build all files for THEME."
+
+else
+
+help::
+	@echo "    all                     Does nothing (default target)."
+
+endif
 
 #################################### Cleanup ###################################
 
