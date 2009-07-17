@@ -14,7 +14,7 @@ BRANDING := \
 	places/mandrake \
 	places/mandriva \
 	places/novell-button \
-	places/start-here	
+	places/start-here
 
 ############################### Global variables ###############################
 
