@@ -8,6 +8,14 @@ DIST_EXTRA := Makefile Palette.svg
 gnome-colors_DIST_COMMON := yes
 $(PROJECT)_DIST_COMMON := yes
 
+BRANDING := \
+	places/gnome-main-menu \
+	places/gnome-starthere \
+	places/mandrake \
+	places/mandriva \
+	places/novell-button \
+	places/start-here	
+
 ############################### Global variables ###############################
 
 VERSION := $(shell head -n 1 ChangeLog | cut -d ' ' -f 1)
@@ -40,8 +48,8 @@ THEME_BUILD = $(THEME_BUILD_FILES) $(THEME_BUILD_LINKS)
 BUILD_FILES := $(foreach theme,$(THEMES),$(call THEME_BUILD_FILES,$(theme)))
 BUILD_LINKS := $(foreach theme,$(THEMES),$(call THEME_BUILD_LINKS,$(theme)))
 BUILD := $(BUILD_FILES) $(BUILD_LINKS)
-COMMON_FILES := $(shell find gnome-colors-common ! -wholename '*/.*' -type f)
-COMMON_LINKS := $(shell find gnome-colors-common ! -wholename '*/.*' -type l)
+COMMON_FILES := $(shell find gnome-colors-common ! -wholename '*/.*' -type f 2> /dev/null)
+COMMON_LINKS := $(shell find gnome-colors-common ! -wholename '*/.*' -type l 2> /dev/null)
 COMMON := $(COMMON_FILES) $(COMMON_LINKS)
 
 ################################### Building ###################################
@@ -138,13 +146,13 @@ $(foreach theme,$(THEMES), \
 )
 
 help::
-	@echo "    all                     Build all files for all themes (default target)."
-	@echo "    THEME                   Build all files for THEME."
+	@echo "    all                      Build all files for all themes (default target)."
+	@echo "    THEME                    Build all files for THEME."
 
 else
 
 help::
-	@echo "    all                     Does nothing (default target)."
+	@echo "    all                      Does nothing (default target)."
 
 endif
 
@@ -157,7 +165,7 @@ ifneq ($(THEME_FILES),)
 endif
 
 help::
-	@echo "    clean                   Deletes all files created by this makefile."
+	@echo "    clean                    Deletes all files created by this makefile."
 
 .PHONY: clean
 
@@ -177,10 +185,10 @@ themes:
 	@for theme in $(sort $(ALL_THEMES)); do echo $$theme; done
 
 help::
-	@echo "    check                   Performs self tests."
-	@echo "    fixperms                Fixes permissions of icon files."
-	@echo "    help                    Displays this help."
-	@echo "    themes                  Lists all available themes."
+	@echo "    check                    Performs self tests."
+	@echo "    fixperms                 Fixes permissions of icon files."
+	@echo "    help                     Displays this help."
+	@echo "    themes                   Lists all available themes."
 
 .PHONY: check fixperms help themes
 
@@ -231,10 +239,10 @@ bz2: $(addsuffix -$(VERSION).tar.bz2,$(DISTRIBUTIONS))
 gz: $(addsuffix -$(VERSION).tar.gz,$(DISTRIBUTIONS))
 
 help::
-	@echo "    dist                    Creates distribution tar files."
-	@echo "    dist-src                Creates a source distribution tar file."
-	@echo "    bz2                     Create distribution .tar.bz2 files."
-	@echo "    gz                      Create distribution .tar.gz files."
+	@echo "    dist                     Creates distribution tar files."
+	@echo "    dist-src                 Creates a source distribution tar file."
+	@echo "    bz2                      Create distribution .tar.bz2 files."
+	@echo "    gz                       Create distribution .tar.gz files."
 
 endif
 
@@ -242,6 +250,9 @@ endif
 
 USER := /home/$(shell whoami)/.icons
 SYSTEM := $(DESTDIR)/usr/share/icons
+BRANDING_FILES := $(patsubst %,gnome-colors-common/scalable/%.svg,$(BRANDING)) \
+	$(foreach size,$(SIZES),$(patsubst %,gnome-colors-common/$(size)/%.png,$(BRANDING)))
+UNBRANDED_COMMON := $(filter-out $(BRANDING_FILES),$(COMMON))
 
 define install_template
 $(SYSTEM)/$(1): $(1)
@@ -285,9 +296,17 @@ install-gnome-colors-common: $(addprefix $(SYSTEM)/,$(COMMON))
 
 user-install-gnome-colors-common: $(addprefix $(USER)/,$(COMMON))
 
+install-unbranded-gnome-colors-common: $(addprefix $(SYSTEM)/,$(UNBRANDED_COMMON))
+
+user-install-unbranded-gnome-colors-common: $(addprefix $(USER)/,$(UNBRANDED_COMMON))
+
 install: $(addprefix install-,$(ALL_THEMES))
 
 user-install: $(addprefix user-install-,$(ALL_THEMES))
+
+install-unbranded: $(addprefix install-,$(THEMES)) install-unbranded-gnome-colors-common
+
+user-install-unbranded: $(addprefix user-install-,$(THEMES)) user-install-unbranded-gnome-colors-common
 
 uninstall:
 	rm -rf $(addprefix $(SYSTEM)/,$(ALL_THEMES))
@@ -296,13 +315,15 @@ user-uninstall:
 	rm -rf $(addprefix $(USER)/,$(ALL_THEMES))
 
 help::
-	@echo "    install                 Installs all themes system-wide."
-	@echo "    uninstall               Removes all themes from the system."
-	@echo "    user-install            Installs all themes into the user directory."
-	@echo "    user-uninstall          Removes all themes from the user directory."
-	@echo "    install-THEME           Installs THEME system-wide."
-	@echo "    uninstall-THEME         Removes THEME from the system."
-	@echo "    user-install-THEME      Installs THEME into the user directory."
-	@echo "    user-uninstall-THEME    Removes THEME from the user directory."
+	@echo "    install                  Installs all themes system-wide."
+	@echo "    install-unbranded        Installs all themes unbranded system-wide."
+	@echo "    uninstall                Removes all themes from the system."
+	@echo "    user-install             Installs all themes into the user directory."
+	@echo "    user-install-unbranded   Installs all themes unbranded for the user."
+	@echo "    user-uninstall           Removes all themes from the user directory."
+	@echo "    install-THEME            Installs THEME system-wide."
+	@echo "    uninstall-THEME          Removes THEME from the system."
+	@echo "    user-install-THEME       Installs THEME into the user directory."
+	@echo "    user-uninstall-THEME     Removes THEME from the user directory."
 
 .PHONY:  uninstall user-uninstall
