@@ -1,6 +1,6 @@
 Name=GNOME-Wise
 Distribution=gnome-colors
-LightFolderBase=#b8d67a
-LightBase=#a7cc5c
-MediumBase=#789e2d
-DarkStroke=#42770c
+LightFolderBase=#aacb7d
+LightBase=#97bf60
+MediumBase=#6f953b
+DarkStroke=#5a7830
