@@ -17,5 +17,5 @@ Folder_DarkStroke=#7d7e60
 Actions_Files=actions/go-bottom.png actions/go-down.png actions/go-first.png actions/go-jump.png actions/go-last.png actions/go-next.png actions/go-previous.png actions/go-top.png actions/go-up.png
 Actions_LightFolderBase=#aacb7d
 Actions_LightBase=#97bf60
-Actions_MediumBase=#739a3e
-Actions_DarkStroke=#5a7830
+Actions_MediumBase=#709937
+Actions_DarkStroke=#51751e
