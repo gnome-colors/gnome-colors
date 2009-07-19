@@ -203,9 +203,8 @@ $(PROJECT)_DIST := \
 	$(THEME_FILES) \
 	$(LINKS_FILE)
 
-define dist_theme_template
-$(call config,$(1),Distribution)-$(VERSION).tar: $(call THEME_BUILD,$(1))
-endef
+COMMON_LINKS1 := $(filter gnome-colors-common/16x16% gnome-colors-common/22x22%,$(COMMON_LINKS))
+COMMON_LINKS2 := $(filter-out $(COMMON_LINKS1),$(COMMON_LINKS))
 
 define dist_template
 # The tar command must be split, otherwise you get this error:
@@ -215,9 +214,10 @@ $(1)-$(VERSION).tar: $$(DOCS) $$(DIST_EXTRA) $$($(1)_DIST)
 	tar -cf $$@ $$(filter-out $$(COMMON),$$^)
 ifeq ($($(1)_DIST_COMMON),yes)
 	tar -rf $$@ $$(COMMON_FILES)
-	tar -rf $$@ $$(COMMON_LINKS)
+	tar -rf $$@ $$(COMMON_LINKS1)
+	tar -rf $$@ $$(COMMON_LINKS2)
 
-$(1)-$(VERSION).tar: $(COMMON)
+$(1)-$(VERSION).tar: $$(COMMON)
 endif
 
 $(1)-$(VERSION).tar.bz2: $(1)-$(VERSION).tar
@@ -227,8 +227,12 @@ $(1)-$(VERSION).tar.gz: $(1)-$(VERSION).tar
 	gzip -cn9 $$< > $$@
 endef
 
-$(foreach theme,$(THEMES),$(eval $(call dist_theme_template,$(theme))))
+define dist_theme_template
+$(call config,$(1),Distribution)-$(VERSION).tar: $(call THEME_BUILD,$(1))
+endef
+
 $(foreach dist,$(DISTRIBUTIONS),$(eval $(call dist_template,$(dist))))
+$(foreach theme,$(THEMES),$(eval $(call dist_theme_template,$(theme))))
 
 dist: gz
 
