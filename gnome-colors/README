@@ -1,15 +1,16 @@
 ####################
 INSTALLATION:      #
 ####################
-This section refers only to the distributable package. For theme creation, skip
+This section refers only to the distributable packages. For theme creation, skip
 to the next section.
 
 To install, drag and drop the .tar.gz file into GNOME's Appearance Preferences,
 or extract it and copy the gnome-* folders to /usr/share/icons as administrator
 (i.e. sudo nautilus /usr/share/icons in Ubuntu). The gnome-colors-common folder
-is a required dependency. You MUST install it in order for all the icon sets to
-work correctly. If you install in this manner, it is VERY recommended to always
-remove a previous version before installation.
+included in the gnome-colors package is a required dependency. You MUST install
+it in order for any gnome-colors icon set to work correctly. If you install in
+this manner, it is VERY recommended to always remove any previous version before
+installation.
 
 You may also use the included Makefile for system-wide installation, just type
 "make install" as administrator or "make user-install" for per-user
@@ -20,15 +21,12 @@ run "make uninstall" as administratior or "make user-uninstall" per-user.
 GNOME-Colors depends on the package "gnome-icon-theme". This package is already
 installed in almost all distributions with a GNOME desktop environment, but you
 may have to install this package if your distribution or desktop environment
-does not have it by default. 
+does not have it by default.
 
-For more icon customization and features, you can install the GNOME-Colors
-Extras. They are available in the project page as the "extras-gnome-colors"
-package.
-
-An extra "tan" color variation is available at the project page, it depends on
-gnome-brave being installed and makes the icon set look more like the default
-gnome-icon-theme. The package is called "extras-gnome-tribute"
+The "gnome-colors-extras" package contains extra color variations that may be
+useful to some. These variations are fun extras, and do not have matching GTK
+or GDM themes. For the gnome-colors-extras to work correctly, a proper
+installation of the main gnome-colors package must be present in your system.
 
 If installed through the Appearance Preferences tool in Ubuntu (instead of
 extracting /usr/share/icons), for icons to theme root/admin applications, you
