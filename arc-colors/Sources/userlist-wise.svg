@@ -31,8 +31,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="243.89016"
-     inkscape:cy="47.089046"
+     inkscape:cx="406.89016"
+     inkscape:cy="127.08905"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -40,8 +40,8 @@
      inkscape:guide-bbox="true"
      inkscape:window-width="1440"
      inkscape:window-height="792"
-     inkscape:window-x="173"
-     inkscape:window-y="167">
+     inkscape:window-x="92"
+     inkscape:window-y="161">
     <sodipodi:guide
        orientation="0,1"
        position="397.81575,496.98634"
@@ -57,33 +57,33 @@
     <linearGradient
        id="linearGradient8006">
       <stop
-         style="stop-color:#a7cc5c;stop-opacity:1"
+         style="stop-color:#97bf60;stop-opacity:1"
          offset="0"
          id="stop8008" />
       <stop
-         style="stop-color:#789e2d;stop-opacity:1"
+         style="stop-color:#739a3e;stop-opacity:1"
          offset="1"
          id="stop8010" />
     </linearGradient>
     <linearGradient
        id="linearGradient8000">
       <stop
-         style="stop-color:#42770c;stop-opacity:1"
+         style="stop-color:#5a7830;stop-opacity:1"
          offset="0"
          id="stop8002" />
       <stop
-         style="stop-color:#789e2d;stop-opacity:1"
+         style="stop-color:#739a3e;stop-opacity:1"
          offset="1"
          id="stop8004" />
     </linearGradient>
     <linearGradient
        id="linearGradient7994">
       <stop
-         style="stop-color:#a7cc5c;stop-opacity:1"
+         style="stop-color:#97bf60;stop-opacity:1"
          offset="0"
          id="stop7996" />
       <stop
-         style="stop-color:#789e2d;stop-opacity:1"
+         style="stop-color:#739a3e;stop-opacity:1"
          offset="1"
          id="stop7998" />
     </linearGradient>
@@ -92,7 +92,7 @@
       <stop
          id="stop7990"
          offset="0"
-         style="stop-color:#789e2d;stop-opacity:1" />
+         style="stop-color:#739a3e;stop-opacity:1" />
       <stop
          id="stop7992"
          offset="1"
@@ -103,31 +103,31 @@
       <stop
          id="stop5517"
          offset="0"
-         style="stop-color:#a7cc5c;stop-opacity:1" />
+         style="stop-color:#97bf60;stop-opacity:1" />
       <stop
          id="stop5519"
          offset="1"
-         style="stop-color:#789e2d;stop-opacity:1" />
+         style="stop-color:#739a3e;stop-opacity:1" />
     </linearGradient>
     <linearGradient
        id="linearGradient6290">
       <stop
          id="stop6292"
          offset="0"
-         style="stop-color:#42770c;stop-opacity:1" />
+         style="stop-color:#5a7830;stop-opacity:1" />
       <stop
          id="stop6294"
          offset="1"
-         style="stop-color:#789e2d;stop-opacity:1" />
+         style="stop-color:#739a3e;stop-opacity:1" />
     </linearGradient>
     <linearGradient
        id="linearGradient6278">
       <stop
-         style="stop-color:#789e2d;stop-opacity:1"
+         style="stop-color:#739a3e;stop-opacity:1"
          offset="0"
          id="stop6280" />
       <stop
-         style="stop-color:#42770c;stop-opacity:1"
+         style="stop-color:#5a7830;stop-opacity:1"
          offset="1"
          id="stop6282" />
     </linearGradient>
