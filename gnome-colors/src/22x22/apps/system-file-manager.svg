@@ -245,17 +245,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="22.197802"
-     inkscape:cx="13.405941"
-     inkscape:cy="8"
+     inkscape:zoom="11.098901"
+     inkscape:cx="4.9283924"
+     inkscape:cy="2.2247388"
      inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:grid-bbox="true"
      inkscape:document-units="px"
      inkscape:window-width="641"
      inkscape:window-height="690"
-     inkscape:window-x="895"
-     inkscape:window-y="181" />
+     inkscape:window-x="441"
+     inkscape:window-y="97" />
   <metadata
      id="metadata7997">
     <rdf:RDF>
@@ -320,7 +320,7 @@
     <path
        id="path4078"
        d="M 4.000016,5.9999974 L 4.000016,10.999997 L 18.000013,10.999997 L 18.000013,5.9999974 L 4.000016,5.9999974 z"
-       style="opacity:0.80198017;fill:url(#linearGradient4123);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;overflow:visible"
+       style="opacity:0.6;fill:url(#linearGradient4123);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;overflow:visible"
        sodipodi:nodetypes="ccccc" />
     <rect
        style="fill:url(#radialGradient4119);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;overflow:visible"
@@ -330,7 +330,7 @@
        x="4.0000153"
        y="11.999996" />
     <path
-       style="opacity:0.80198017;fill:url(#linearGradient4121);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;overflow:visible"
+       style="opacity:0.6;fill:url(#linearGradient4121);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;overflow:visible"
        d="M 4.000016,11.999998 L 4.000016,18.992619 C 4.000016,18.992619 18.000013,18.999996 18.000013,18.999996 L 18.000013,11.999998 L 4.000016,11.999998 z"
        id="path4068"
        sodipodi:nodetypes="ccccc" />
