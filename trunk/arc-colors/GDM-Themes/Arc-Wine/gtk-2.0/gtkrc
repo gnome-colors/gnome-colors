@@ -60,13 +60,13 @@ style "clearlooks-default"
         bg[NORMAL]        = "#D8D8D8"
         bg[PRELIGHT]      = "#DDDDDD"
         bg[ACTIVE]        = "#B8B8B8"
-        bg[SELECTED]      = "#DA3F3F"
+        bg[SELECTED]      = "#de4e4e"
         bg[INSENSITIVE]   = "#D8D8D8"
 
         base[NORMAL]      = "#FFFFFF"
         base[PRELIGHT]    = "#CECECE"
-        base[ACTIVE]      = "#DA3F3F"
-        base[SELECTED]    = "#DA3F3F"
+        base[ACTIVE]      = "#de4e4e"
+        base[SELECTED]    = "#de4e4e"
         base[INSENSITIVE] = "#D8D8D8"
 
         text[NORMAL]      = "#1A1A1A"
@@ -105,11 +105,11 @@ style "clearlooks-wider"
 
 style "clearlooks-entry" = "clearlooks-wider" {
 
-	bg[SELECTED] = "#F1B2B2"
+	bg[SELECTED] = "#F2B8B8"
 	fg[SELECTED] = "#1A1A1A"
 
 	engine "clearlooks" {
-		focus_color = "#843333"
+		focus_color = "#8D3636"
 	}
 }
 
@@ -140,9 +140,9 @@ style "clearlooks-menu"
 {
 	ythickness = 0
 	xthickness = 0
-	bg[SELECTED]	= "#BC3232"
+	bg[SELECTED]	= "#CA3535"
 	bg[NORMAL]	= "#3C3C3C"
-	bg[PRELIGHT]	= "#BC3232"
+	bg[PRELIGHT]	= "#CA3535"
 	bg[ACTIVE]	= "#333333"
 	bg[INSENSITIVE]	= "#3C3C3C"
 	fg[NORMAL]	= "#E6E6E6"
@@ -164,8 +164,8 @@ style "clearlooks-menu"
 
 style "clearlooks-menu-item" = "clearlooks-wider"
 {
-	bg[SELECTED]	= "#BC3232"
-	bg[PRELIGHT]	= "#BC3232"
+	bg[SELECTED]	= "#CA3535"
+	bg[PRELIGHT]	= "#CA3535"
 	fg[NORMAL]	= "#E6E6E6"
 	fg[PRELIGHT]	= "#FFFFFF"
 	fg[SELECTED]	= "#FFFFFF"
@@ -184,9 +184,9 @@ style "clearlooks-separator-menu-item"
 style "clearlooks-menubar"
 {
 	ythickness = 0
-	bg[SELECTED]	= "#BC3232"
+	bg[SELECTED]	= "#CA3535"
 	bg[NORMAL]	= "#3C3C3C"
-	bg[PRELIGHT]	= "#BC3232"
+	bg[PRELIGHT]	= "#CA3535"
 	bg[ACTIVE]	= "#333333"
 	bg[INSENSITIVE]	= "#3C3C3C"
 	fg[NORMAL]	= "#E6E6E6"
