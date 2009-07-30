@@ -283,8 +283,8 @@ install-$(1): $$(addprefix $$(SYSTEM)/,$(call THEME_BUILD,$(1)))
 user-install-$(1): $$(addprefix $$(USER)/,$(call THEME_BUILD,$(1)))
 
 ifneq ($(COMMON),)
-install-$(1): install-gnome-colors-common
-user-install-$(1): user-install-gnome-colors-common
+install-$(1): install-unbranded-gnome-colors-common
+user-install-$(1): user-install-unbranded-gnome-colors-common
 endif
 endef
 
