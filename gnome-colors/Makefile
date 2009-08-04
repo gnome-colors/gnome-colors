@@ -252,7 +252,7 @@ endif
 
 ################################# Installation #################################
 
-USER := /home/$(shell whoami)/.icons
+USER := ~/.icons
 SYSTEM := $(DESTDIR)/usr/share/icons
 BRANDING_FILES := $(patsubst %,gnome-colors-common/scalable/%.svg,$(BRANDING)) \
 	$(foreach size,$(SIZES),$(patsubst %,gnome-colors-common/$(size)/%.png,$(BRANDING)))

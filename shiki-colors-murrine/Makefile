@@ -15,7 +15,7 @@ WALLPAPER := Arc-Colors-Transparent-Wallpaper.png
 DIST_EXTRA := Makefile userChrome.css
 
 FILES := $(shell find $(THEMES) ! -wholename '*/.*' -type f)
-USER := /home/$(shell whoami)/.themes
+USER := ~/.themes
 SYSTEM := $(DESTDIR)/usr/share/themes
 SYSTEM_WP := $(DESTDIR)/usr/share/backgrounds
 DIST_FILES := $(FILES) $(DOCS) $(WALLPAPER) $(DIST_EXTRA)
