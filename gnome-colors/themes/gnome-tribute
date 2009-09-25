@@ -7,7 +7,7 @@ MediumBase=#3465a4
 DarkStroke=#204a87
 
 #The following set first alternate color palette for files by type.
-Folder_Files=actions/add-folder-to-archive.png actions/document-open.png actions/folder-copy.png actions/folder-move.png actions/folder-new.png places/folder.png places/folder-remote.png places/folder-remote-smb.png places/folder-remote-ssh.png places/folder-saved-search.png places/user-home.png status/folder-open.png
+Folder_Files=actions/add-folder-to-archive.png actions/document-open.png actions/folder-copy.png actions/folder-move.png actions/folder-new.png places/folder.png places/folder-remote.png places/folder-saved-search.png places/user-home.png status/folder-open.png
 Folder_LightFolderBase=#cccdbc
 Folder_LightBase=#bcbea7
 Folder_MediumBase=#9c9e8a
