@@ -79,6 +79,7 @@ video-display.png devices/monitor.png
 video-display.png devices/xfce4-display.png
 folder.icon places/application-x-gnome-saved-search.icon
 folder.icon places/folder-documents.icon
+folder.icon places/folder-download.icon
 folder.icon places/folder-downloads.icon
 folder.icon places/folder_home.icon
 folder.icon places/folder-music.icon
@@ -111,6 +112,7 @@ folder.png places/gtk-directory.png
 folder.png places/inode-directory.png
 folder.png places/stock_folder.png
 folder-documents.png places/folder-templates.png
+folder-downloads.png places/folder-download.png
 folder-remote.png places/gnome-fs-ftp.png
 folder-remote.png places/gnome-fs-nfs.png
 folder-remote.png places/gnome-fs-share.png
