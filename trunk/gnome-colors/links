@@ -106,12 +106,14 @@ folder.png places/stock_folder.png
 folder-remote.png places/gnome-fs-ftp.png
 folder-remote.png places/gnome-fs-nfs.png
 folder-remote.png places/gnome-fs-share.png
+folder-remote.png places/gnome-fs-smb.png
+folder-remote.png places/gnome-fs-ssh.png
+folder-remote.png places/gnome-mime-x-directory-smb-share.png
+folder-remote.png places/folder-remote-smb.png
+folder-remote.png places/folder-remote-ssh.png
 folder-remote.png places/network.png
 folder-remote.png places/stock_shared-by-me.png
 folder-remote.png places/stock_shared-to-me.png
-folder-remote-smb.png places/gnome-fs-smb.png
-folder-remote-smb.png places/gnome-mime-x-directory-smb-share.png
-folder-remote-ssh.png places/gnome-fs-ssh.png
 folder-saved-search.png places/application-x-gnome-saved-search.png
 network-workgroup.png places/gnome-fs-network.png
 network-workgroup.png places/gnome-mime-x-directory-smb-workgroup.png
