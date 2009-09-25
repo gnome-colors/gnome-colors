@@ -1,3 +1,6 @@
+4.6 (2009-09-25)
+* Add support for Chromium's GTK theming.
+
 4.5 (2009-08-03)
 * Update Green, Pink, Orange and Red palettes for better contrast.
 * Fix a minor Firefox urlbar color issue in green/orange variations.

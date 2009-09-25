@@ -1,3 +1,9 @@
+5.5 (2009-09-25)
+* New, redesigned folders!
+* Add folder-xdg icons for Karmic/GNOME 2.28.
+* Add some new icons/update others for better Karmic support.
+* Minor bugfixes.
+
 5.3 (2009-08-03)
 * Change Green and Pink Palettes for better contrast.
 * Source pack can now build mix n' match themes like "gnome-tribute".
