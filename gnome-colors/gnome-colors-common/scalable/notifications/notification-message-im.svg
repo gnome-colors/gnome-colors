@@ -1,73 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
+
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="48px"
-   height="48px"
-   id="svg8855"
-   sodipodi:version="0.32"
-   inkscape:version="0.46+devel"
-   sodipodi:docname="notification-message-im.svg"
-   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+   version="1.1"
+   width="48"
+   height="48"
+   id="svg8855">
   <defs
      id="defs8857">
     <linearGradient
-       id="SVGID_1_"
-       gradientUnits="userSpaceOnUse"
        x1="36.694302"
        y1="52.752899"
        x2="7.0581999"
-       y2="11.9624">
+       y2="11.9624"
+       id="SVGID_1_"
+       gradientUnits="userSpaceOnUse">
       <stop
-         offset="0"
-         style="stop-color:#9B9B9B"
-         id="stop541" />
+         id="stop541"
+         style="stop-color:#9b9b9b;stop-opacity:1"
+         offset="0" />
       <stop
-         offset="1"
-         style="stop-color:#ECECEC"
-         id="stop543" />
+         id="stop543"
+         style="stop-color:#ececec;stop-opacity:1"
+         offset="1" />
     </linearGradient>
   </defs>
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="2.4748737"
-     inkscape:cx="71.432653"
-     inkscape:cy="25.277427"
-     inkscape:current-layer="layer1"
-     showgrid="true"
-     inkscape:grid-bbox="true"
-     inkscape:document-units="px"
-     inkscape:window-width="567"
-     inkscape:window-height="460"
-     inkscape:window-x="593"
-     inkscape:window-y="507" />
-  <metadata
-     id="metadata8860">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
   <g
-     id="layer1"
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer">
+     id="layer1">
     <g
        transform="translate(-4.4395155e-4,0.005)"
        id="Layer_2"
@@ -88,20 +49,20 @@
       <g
          id="g538">
         <linearGradient
-           id="linearGradient8843"
-           gradientUnits="userSpaceOnUse"
            x1="36.694302"
            y1="52.752899"
            x2="7.0581999"
-           y2="11.9624">
+           y2="11.9624"
+           id="linearGradient8843"
+           gradientUnits="userSpaceOnUse">
           <stop
-             offset="0"
-             style="stop-color:#9B9B9B"
-             id="stop8845" />
+             id="stop8845"
+             style="stop-color:#9b9b9b;stop-opacity:1"
+             offset="0" />
           <stop
-             offset="1"
-             style="stop-color:#ECECEC"
-             id="stop8847" />
+             id="stop8847"
+             style="stop-color:#ececec;stop-opacity:1"
+             offset="1" />
         </linearGradient>
         <path
            d="m 23.746,25.076 c 5.915,0 11.938,-5.5 11.938,-11.324 0,-5.821 -5.734,-11.754 -11.649,-11.754 -5.913,0 -11.793,6.072 -11.793,11.893 -0.001,5.825 5.591,11.185 11.504,11.185 z m 9.27,3.791 c -2.863,-0.586 -6.9,-0.898 -9.017,-0.898 -2.098,0 -6.101,0.309 -8.943,0.883 C 3.704,31.154 2.189,37.725 2,45.967 c 0.166,0.012 0.332,0.025 0.501,0.025 l 43.499,0 C 45.82,37.756 44.342,31.184 33.016,28.867 z"
