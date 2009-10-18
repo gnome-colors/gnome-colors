@@ -1,92 +1,53 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
+
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="48px"
-   height="48px"
-   id="svg4255"
-   sodipodi:version="0.32"
-   inkscape:version="0.46+devel"
-   sodipodi:docname="notification-power-disconnected.svg"
-   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+   version="1.1"
+   width="48"
+   height="48"
+   id="svg4255">
   <defs
      id="defs4257">
     <linearGradient
-       id="SVGID_1_"
-       gradientUnits="userSpaceOnUse"
        x1="38.815399"
        y1="35.006302"
        x2="15.8338"
-       y2="3.3749001">
+       y2="3.3749001"
+       id="SVGID_1_"
+       gradientUnits="userSpaceOnUse">
       <stop
-         offset="0"
-         style="stop-color:#9B9B9B"
-         id="stop2296" />
+         id="stop2296"
+         style="stop-color:#9b9b9b;stop-opacity:1"
+         offset="0" />
       <stop
-         offset="1"
-         style="stop-color:#ECECEC"
-         id="stop2298" />
+         id="stop2298"
+         style="stop-color:#ececec;stop-opacity:1"
+         offset="1" />
     </linearGradient>
     <linearGradient
-       id="SVGID_2_"
-       gradientUnits="userSpaceOnUse"
        x1="29.6143"
        y1="25.2192"
        x2="29.6143"
-       y2="41.2192">
+       y2="41.2192"
+       id="SVGID_2_"
+       gradientUnits="userSpaceOnUse">
       <stop
-         offset="0"
-         style="stop-color:#FF6363"
-         id="stop2329" />
+         id="stop2329"
+         style="stop-color:#ff6363;stop-opacity:1"
+         offset="0" />
       <stop
-         offset="1"
-         style="stop-color:#CC0000"
-         id="stop2331" />
+         id="stop2331"
+         style="stop-color:#cc0000;stop-opacity:1"
+         offset="1" />
     </linearGradient>
   </defs>
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="1.75"
-     inkscape:cx="-26.513049"
-     inkscape:cy="42.60975"
-     inkscape:current-layer="layer1"
-     showgrid="true"
-     inkscape:grid-bbox="true"
-     inkscape:document-units="px"
-     inkscape:window-width="567"
-     inkscape:window-height="460"
-     inkscape:window-x="0"
-     inkscape:window-y="25" />
-  <metadata
-     id="metadata4260">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
   <g
-     id="layer1"
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer">
+     id="layer1">
     <g
-       id="Layer_2"
-       transform="translate(0,2.819)">
+       transform="translate(0,2.819)"
+       id="Layer_2">
       <g
          id="g2286"
          style="opacity:0.3">
@@ -99,25 +60,25 @@
       </g>
     </g>
     <g
-       id="Layer_1"
-       transform="translate(0,2.819)">
+       transform="translate(0,2.819)"
+       id="Layer_1">
       <g
          id="g2293">
         <linearGradient
-           id="linearGradient4222"
-           gradientUnits="userSpaceOnUse"
            x1="38.815399"
            y1="35.006302"
            x2="15.8338"
-           y2="3.3749001">
+           y2="3.3749001"
+           id="linearGradient4222"
+           gradientUnits="userSpaceOnUse">
           <stop
-             offset="0"
-             style="stop-color:#9B9B9B"
-             id="stop4224" />
+             id="stop4224"
+             style="stop-color:#9b9b9b;stop-opacity:1"
+             offset="0" />
           <stop
-             offset="1"
-             style="stop-color:#ECECEC"
-             id="stop4226" />
+             id="stop4226"
+             style="stop-color:#ececec;stop-opacity:1"
+             offset="1" />
         </linearGradient>
         <path
            d="m 44.841,10.743 c 0.64,0 1.158,-0.519 1.158,-1.158 l 0,-1.544 c 0,-0.64 -0.519,-1.158 -1.158,-1.158 l -11.708,0 0,-3.989 C 33.133,2.4 32.733,2 32.239,2 L 22.232,2 c -0.087,0 -0.17,0.016 -0.25,0.04 -7.296,0.496 -13.3,5.701 -14.995,12.601 l -3.458,0 c -0.845,0 -1.53,0.685 -1.53,1.53 l 0,4.896 c 0,0.845 0.685,1.529 1.53,1.529 l 3.458,0 c 1.695,6.9 7.699,12.104 14.996,12.601 0.08,0.024 0.163,0.04 0.25,0.04 l 10.007,0 c 0.494,0 0.894,-0.4 0.894,-0.893 l 0,-3.989 11.708,0 c 0.64,0 1.158,-0.519 1.158,-1.158 l 0,-1.544 c 0,-0.64 -0.519,-1.158 -1.158,-1.158 l -11.709,0 0,-15.752 11.708,0 z"
@@ -126,11 +87,11 @@
       </g>
     </g>
     <g
-       id="Layer_3"
-       transform="translate(0,2.819)" />
+       transform="translate(0,2.819)"
+       id="Layer_3" />
     <g
-       id="Layer_4"
-       transform="translate(0,2.819)">
+       transform="translate(0,2.819)"
+       id="Layer_4">
       <g
          id="g2304"
          style="opacity:0.4">
@@ -141,11 +102,11 @@
       </g>
     </g>
     <g
-       id="Layer_5"
-       transform="translate(0,2.819)" />
+       transform="translate(0,2.819)"
+       id="Layer_5" />
     <g
-       id="Layer_6"
-       transform="translate(0,2.819)">
+       transform="translate(0,2.819)"
+       id="Layer_6">
       <g
          id="g2310"
          style="opacity:0.2">
@@ -159,8 +120,8 @@
       </g>
     </g>
     <g
-       id="Layer_7"
-       transform="translate(0,2.819)">
+       transform="translate(0,2.819)"
+       id="Layer_7">
       <line
          x1="28.281"
          y1="5.862"
@@ -191,26 +152,26 @@
          style="opacity:0.3;fill:none;stroke:#ffffff" />
     </g>
     <g
-       id="Layer_8"
-       transform="translate(0,2.819)">
+       transform="translate(0,2.819)"
+       id="Layer_8">
       <path
          d="m 34.546,42.362 c -0.373,0 -0.723,-0.145 -0.979,-0.405 l -3.244,-3.241 c -0.195,-0.195 -0.451,-0.293 -0.707,-0.293 -0.256,0 -0.512,0.098 -0.707,0.293 l -3.242,3.239 c -0.253,0.255 -0.621,0.407 -0.985,0.407 -0.364,0 -0.711,-0.143 -0.979,-0.398 l -2.681,-2.686 c -0.259,-0.252 -0.409,-0.616 -0.409,-0.986 0,-0.359 0.154,-0.726 0.409,-0.98 l 3.24,-3.242 c 0.391,-0.391 0.391,-1.023 0,-1.414 l -3.238,-3.24 c -0.536,-0.54 -0.541,-1.424 -0.006,-1.967 l 2.678,-2.674 c 0.266,-0.268 0.615,-0.414 0.985,-0.414 0.376,0 0.725,0.148 0.989,0.416 l 3.238,3.234 c 0.195,0.195 0.451,0.295 0.707,0.295 0.256,0 0.512,-0.1 0.707,-0.295 l 3.24,-3.236 c 0.252,-0.262 0.613,-0.412 0.982,-0.412 0.365,0 0.725,0.15 0.986,0.412 l 2.672,2.672 c 0.262,0.252 0.412,0.617 0.412,0.984 0,0.361 -0.154,0.729 -0.41,0.982 l -3.239,3.242 c -0.391,0.391 -0.391,1.023 0,1.414 l 3.237,3.24 c 0.266,0.263 0.412,0.612 0.412,0.982 0,0.379 -0.143,0.719 -0.41,0.984 l -2.672,2.677 c -0.265,0.267 -0.606,0.41 -0.986,0.41 l 0,0 z"
          id="path2326" />
       <linearGradient
-         id="linearGradient4245"
-         gradientUnits="userSpaceOnUse"
          x1="29.6143"
          y1="25.2192"
          x2="29.6143"
-         y2="41.2192">
+         y2="41.2192"
+         id="linearGradient4245"
+         gradientUnits="userSpaceOnUse">
         <stop
-           offset="0"
-           style="stop-color:#FF6363"
-           id="stop4247" />
+           id="stop4247"
+           style="stop-color:#ff6363;stop-opacity:1"
+           offset="0" />
         <stop
-           offset="1"
-           style="stop-color:#CC0000"
-           id="stop4249" />
+           id="stop4249"
+           style="stop-color:#cc0000;stop-opacity:1"
+           offset="1" />
       </linearGradient>
       <path
          d="m 32.847,33.22 4.652,-4.653 c 0.074,-0.073 0.115,-0.175 0.115,-0.278 0,-0.103 -0.041,-0.205 -0.115,-0.279 l -2.674,-2.674 c -0.074,-0.074 -0.176,-0.115 -0.279,-0.115 -0.103,0 -0.205,0.041 -0.277,0.115 l -4.654,4.652 -4.653,-4.652 c -0.153,-0.154 -0.402,-0.154 -0.557,0 l -2.674,2.674 c -0.154,0.154 -0.154,0.404 0,0.558 l 4.653,4.653 -4.654,4.652 c -0.073,0.073 -0.115,0.175 -0.115,0.278 0,0.103 0.042,0.205 0.115,0.278 l 2.675,2.675 c 0.073,0.073 0.175,0.115 0.278,0.115 0.104,0 0.206,-0.042 0.278,-0.115 l 4.653,-4.652 4.654,4.652 c 0.074,0.074 0.172,0.115 0.277,0.115 0.105,0 0.205,-0.041 0.279,-0.115 l 2.674,-2.675 c 0.074,-0.074 0.115,-0.173 0.115,-0.278 0,-0.105 -0.041,-0.204 -0.115,-0.278 L 32.847,33.22 z"
